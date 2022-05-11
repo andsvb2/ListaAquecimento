@@ -30,4 +30,24 @@ public class CentralDeInformacoes {
 		}
 		return null;
 	}
+	
+	public ArrayList<Canal> getListaCanais(){
+		return listaCanais;
+	}
+	
+	public boolean adicionarCanal(Canal c) {
+		if(recuperarCanalPeloNome(c.getNomeCanal()) == null) {
+			listaCanais.add(c);
+			return true;
+		}
+		return false;
+	}
+	
+	public Canal recuperarCanalPeloNome(String nomeTeste) {
+		for(Canal c: listaCanais) {
+			if(nomeTeste.equals(c.getNomeCanal()))
+				return c;
+		}
+		return null;
+	}
 }
