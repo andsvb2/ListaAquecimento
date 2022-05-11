@@ -7,7 +7,7 @@ public class CentralDeInformacoes {
 	private ArrayList <ProgramaDeTv> todosOsProgramas;
 
 	public boolean adicionarProgramaDeTv(ProgramaDeTv programa) {
-		if(recuperarProgramaDeTvPeloId() {
+		if(recuperarProgramaDeTvPeloId(programa) == null) {
 			return false;
 		}
 		todosOsProgramas.add(programa);
