@@ -1,17 +1,17 @@
 
-
 import java.util.ArrayList;
 
 public class CentralDeInformacoes {
 
 	private ArrayList <ProgramaDeTv> todosOsProgramas;
+	private ArrayList<Canal> listaCanais;
 
 	public boolean adicionarProgramaDeTv(ProgramaDeTv programa) {
 		if(recuperarProgramaDeTvPeloId(programa) == null) {
-			return false;
+			todosOsProgramas.add(programa);
+			return true;
 		}
-		todosOsProgramas.add(programa);
-		return true;
+		return false;
 	}
 
 	public ArrayList <ProgramaDeTv> getTodosOsProgramas() {
@@ -23,9 +23,8 @@ public class CentralDeInformacoes {
 	}
 
 	public ProgramaDeTv recuperarProgramaDeTvPeloId(ProgramaDeTv id){
-		ProgramaDeTv programa = new ProgramaDeTv(null, null);
 		for(ProgramaDeTv p : todosOsProgramas) {
-			if(p.getId() == programa.getId()) {
+			if(p.getId() == id.getId()) {
 				return p;
 			}
 		}
