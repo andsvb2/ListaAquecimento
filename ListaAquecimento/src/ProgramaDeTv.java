@@ -9,6 +9,7 @@ public class ProgramaDeTv {
 	private String nome;
 	private TipoDePrograma tipo;
 	private ArrayList <String> diasDaSemana;
+	private Canal canal;
 	
 	Calendar c = Calendar.getInstance();
 	
@@ -50,5 +51,12 @@ public class ProgramaDeTv {
 		this.diasDaSemana = diasDaSemana;
 	}
 	
+	public Canal getCanal() {
+		return canal;
+	}
+	
+	public void setCanal(Canal novoCanal) {
+		canal = novoCanal;
+	}
 	
 }
