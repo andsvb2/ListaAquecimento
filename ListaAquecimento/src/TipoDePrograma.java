@@ -1,5 +1,17 @@
 
 public enum TipoDePrograma {
-	SERIES,REALITIES,PROGRAMAS
 	
+	SR("Série regular"),
+	RS("Reality show"),
+	PC("Programa contínuo");
+	
+	private final String tipo;
+	
+	TipoDePrograma(String novoTipo){
+		tipo = novoTipo;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
 }
