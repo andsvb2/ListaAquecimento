@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 public class ProgramaDeTv {
 	
-	private long id = System.currentTimeMillis();
+	private long id;
 	private String nome;
 	private TipoDePrograma tipo;
 	private ArrayList <String> diasDaSemana;
@@ -13,6 +13,7 @@ public class ProgramaDeTv {
 	Calendar c = Calendar.getInstance();
 	
 	public ProgramaDeTv(String n, TipoDePrograma t) {
+		id = System.currentTimeMillis();
 		this.nome = n;
 		this.tipo = t;
 	}
