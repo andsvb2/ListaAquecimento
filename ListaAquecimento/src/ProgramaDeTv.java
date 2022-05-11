@@ -13,10 +13,11 @@ public class ProgramaDeTv {
 	
 	Calendar c = Calendar.getInstance();
 	
-	public ProgramaDeTv(String n, TipoDePrograma t) {
+	public ProgramaDeTv(String n, TipoDePrograma t, Canal c) {
 		id = System.currentTimeMillis();
 		this.nome = n;
 		this.tipo = t;
+		canal = c;
 	}
 	
 	public String toString() {
