@@ -1,47 +1,20 @@
-
+package programas;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ProgramaDeTv {
+import midia.Canal;
+
+public class ProgramaDeTv extends Programa {
 	
-	private long id;
-	private String nome;
-	private TipoDePrograma tipo;
 	private ArrayList <String> diasDaSemana;
 	private Canal canal;
 	
 	Calendar c = Calendar.getInstance();
 	
 	public ProgramaDeTv(String n, TipoDePrograma t, Canal c) {
-		id = System.currentTimeMillis();
-		this.nome = n;
-		this.tipo = t;
+		super(n, t);
 		canal = c;
-	}
-	
-	public String toString() {
-		return nome;
-	}
-	
-	public long getId() {
-		return id;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String novoNome) {
-		nome = novoNome;
-	}
-	
-	public TipoDePrograma getTipo() {
-		return tipo;
-	}
-	
-	public void setTipo(TipoDePrograma novoTipo) {
-		tipo = novoTipo;
 	}
 	
 	public ArrayList <String> getDiasDaSemana(){
@@ -59,5 +32,4 @@ public class ProgramaDeTv {
 	public void setCanal(Canal novoCanal) {
 		canal = novoCanal;
 	}
-	
 }

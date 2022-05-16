@@ -1,3 +1,4 @@
+package programas;
 
 public enum TipoDePrograma {
 	

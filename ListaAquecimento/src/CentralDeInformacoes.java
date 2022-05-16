@@ -1,5 +1,7 @@
-
 import java.util.ArrayList;
+
+import midia.Canal;
+import programas.ProgramaDeTv;
 
 public class CentralDeInformacoes {
 
