@@ -1,28 +1,27 @@
 package programas;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.time.DayOfWeek;
 
 import midia.Canal;
 
 public class ProgramaDeTv extends Programa {
 	
-	private ArrayList <String> diasDaSemana;
 	private Canal canal;
+	private ArrayList <DayOfWeek> diasExibicao;
 	
-	Calendar c = Calendar.getInstance();
-	
-	public ProgramaDeTv(String n, TipoDePrograma t, Canal c) {
+	public ProgramaDeTv(String n, TipoDePrograma t, ArrayList<DayOfWeek> dias, Canal c) {
 		super(n, t);
+		diasExibicao = dias;
 		canal = c;
 	}
 	
-	public ArrayList <String> getDiasDaSemana(){
-		return diasDaSemana;
+	public ArrayList<DayOfWeek> getDiasExibicao(){
+		return diasExibicao;
 	}
 	
-	public void setDiasDaSemana(ArrayList<String>diasDaSemana) {
-		this.diasDaSemana = diasDaSemana;
+	public void setDiasExibicao(ArrayList<DayOfWeek> dias) {
+		diasExibicao = dias;
 	}
 	
 	public Canal getCanal() {
