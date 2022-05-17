@@ -1,3 +1,4 @@
+package metodos;
 import java.util.ArrayList;
 
 import midia.Canal;
@@ -5,18 +6,18 @@ import programas.ProgramaDeTv;
 
 public class CentralDeInformacoes {
 
-	private ArrayList <ProgramaDeTv> todosOsProgramas;
+	private ArrayList<ProgramaDeTv> todosOsProgramas;
 	private ArrayList<Canal> listaCanais;
 
 	public boolean adicionarProgramaDeTv(ProgramaDeTv programa) {
-		if(recuperarProgramaDeTvPeloId(programa) == null) {
+		if (recuperarProgramaDeTvPeloId(programa) == null) {
 			todosOsProgramas.add(programa);
 			return true;
 		}
 		return false;
 	}
 
-	public ArrayList <ProgramaDeTv> getTodosOsProgramas() {
+	public ArrayList<ProgramaDeTv> getTodosOsProgramas() {
 		return todosOsProgramas;
 	}
 
@@ -24,30 +25,30 @@ public class CentralDeInformacoes {
 		this.todosOsProgramas = todosOsProgramas;
 	}
 
-	public ProgramaDeTv recuperarProgramaDeTvPeloId(ProgramaDeTv id){
-		for(ProgramaDeTv p : todosOsProgramas) {
-			if(p.getId() == id.getId()) {
+	public ProgramaDeTv recuperarProgramaDeTvPeloId(ProgramaDeTv id) {
+		for (ProgramaDeTv p : todosOsProgramas) {
+			if (p.getId() == id.getId()) {
 				return p;
 			}
 		}
 		return null;
 	}
-	
-	public ArrayList<Canal> getListaCanais(){
+
+	public ArrayList<Canal> getListaCanais() {
 		return listaCanais;
 	}
-	
+
 	public boolean adicionarCanal(Canal c) {
-		if(recuperarCanalPeloNome(c.getNomeCanal()) == null) {
+		if (recuperarCanalPeloNome(c.getNomeCanal()) == null) {
 			listaCanais.add(c);
 			return true;
 		}
 		return false;
 	}
-	
+
 	public Canal recuperarCanalPeloNome(String nomeTeste) {
-		for(Canal c: listaCanais) {
-			if(nomeTeste.equals(c.getNomeCanal()))
+		for (Canal c : listaCanais) {
+			if (nomeTeste.equals(c.getNomeCanal()))
 				return c;
 		}
 		return null;

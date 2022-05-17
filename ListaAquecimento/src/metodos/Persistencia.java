@@ -1,3 +1,4 @@
+package metodos;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.PrintWriter;
@@ -10,7 +11,7 @@ public class Persistencia {
 	private XStream xstream = new XStream(new DomDriver("UTF-8"));
 
 	public void salvarCentral(CentralDeInformacoes central) throws Exception {
-		File arquivo = new File("salvar.xml");
+		File arquivo = new File("dados.xml");
 		arquivo.createNewFile();
 
 		PrintWriter pw = new PrintWriter(arquivo);
@@ -20,16 +21,15 @@ public class Persistencia {
 		pw.close();
 	}
 
-	public CentralDeInformacoes recuperarCentral() throws Exception{
+	public CentralDeInformacoes recuperarCentral() throws Exception {
 
-		File arquivo = new File("salvar.xml");
+		File arquivo = new File("dados.xml");
 
-		if(arquivo.exists()) {
+		if (arquivo.exists()) {
 			FileInputStream f = new FileInputStream(arquivo);
 			return (CentralDeInformacoes) xstream.fromXML(f);
-		}else {
+		} else {
 			return new CentralDeInformacoes();
 		}
 	}
 }
-
