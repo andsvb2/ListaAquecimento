@@ -15,29 +15,28 @@ public class GeradorDeRelatorios {
 
 		Persistencia persistencia = new Persistencia();
 		CentralDeInformacoes central = persistencia.recuperarCentral("central");
-		Document documento = new Document(PageSize.A4, 72, 72, 72, 72);
+		
+		Document doc = new Document(PageSize.A4);
 		try {
-			PdfWriter.getInstance(documento, new FileOutputStream("relatorio.pdf"));
-			documento.open();
-			Paragraph p1 = new Paragraph("### Programas criados do canal " + canal + "###\\n");
-					documento.add(p1);
-			ArrayList<ProgramaDeTv> programas =
-					central.buscarProgramasPorCanal(canal.getNome());
-			if (programas.isEmpty()) {
-				Paragraph p = new Paragraph("O canal " + canal.getNome() + "não possui programas");
-						documento.add(p);
-			} else {
-				for (ProgramaDeTv programa : programas) {
-					Paragraph p = new Paragraph(programa.toString());
-					documento.add(p);
-				}
-			}
-			documento.close();
-		} catch (FileNotFoundException | DocumentException e) {
+			OutputStream os = new FileOutputStream("relatorio.pdf");
+
+			PdfWriter.getInstance(doc, os);
+
+			doc.open();
+
+			Paragraph pg = new Paragraph("Programas cadastrados no canal" + canal + "\n");
+			doc.add(pg);
+			
+			doc.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
 	}
+
 }
+
 
 
 
