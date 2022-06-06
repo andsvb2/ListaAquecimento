@@ -31,6 +31,7 @@ public class Mensageiro {
 
 		Session session = Session.getDefaultInstance(props, new jakarta.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication("projetopoo2022.1@gmail.com", senha);
 			}
 		});
 
