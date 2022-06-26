@@ -1,3 +1,5 @@
+package metodos;
+
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -32,7 +34,7 @@ public class Mensageiro {
 				return new PasswordAuthentication("projetopoo2022.1@gmail.com", "projeto2022");
 			}
 		});
-		/** Ativa Debug para sessão */
+		/** Ativa Debug para sessï¿½o */
 		session.setDebug(false);
 		try {
 			Message message = new MimeMessage(session);

@@ -8,6 +8,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/xstream-1.4.19.jar"/>
 	<classpathentry kind="lib" path="lib/itextpdf-5.5.9.jar"/>
-	<classpathentry kind="lib" path="lib/jakarta.mail-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/dsn.jar"/>
+	<classpathentry kind="lib" path="lib/gimap.jar"/>
+	<classpathentry kind="lib" path="lib/imap.jar"/>
+	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="lib/pop3.jar"/>
+	<classpathentry kind="lib" path="lib/smtp.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
