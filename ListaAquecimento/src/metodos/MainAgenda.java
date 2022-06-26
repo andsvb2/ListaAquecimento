@@ -23,16 +23,16 @@ public class MainAgenda {
 			System.out.println("[3] - Listar programas de um mesmo tipo");
 			System.out.println("[4] - Novo canal");
 			System.out.println("[5] - Listar canais");
-			System.out.println("[6] - Gerar rela��o dos programas de um mesmo canal");
-			System.out.println("[7] - Enviar programa��o de hoje");
+			System.out.println("[6] - Gerar relatório dos programas de um mesmo canal");
+			System.out.println("[7] - Enviar programação de hoje");
 			System.out.println("[S] - Sair");
-			System.out.print("\nOp��o: ");
+			System.out.print("\nOpção: ");
 			
 			String opcao = leia.nextLine();
 			switch (opcao) {
 			case "1":
 				if (central.getListaCanais().isEmpty()) {
-					System.out.println("Para cadastrar um programa � necess�rio cadastrar um Canal(s) previamente.\n");
+					System.out.println("Para cadastrar um programa é necessário cadastrar um Canal(s) previamente.\n");
 				} else {
 					System.out.println("\n-- dados do Programa -- ");
 
@@ -42,7 +42,7 @@ public class MainAgenda {
 					System.out.print("Tipo do Programa: ");
 					central.getTodosOsProgramas();
 
-					System.out.print("\nOp��o: ");
+					System.out.print("\nOpção: ");
 					String tipoString = leia.nextLine().toUpperCase();
 
 					System.out.print("Canais: ");
@@ -54,7 +54,7 @@ public class MainAgenda {
 					canal = central.recuperarCanalPeloNome(nomeCanal);
 					
 					if(canal == null) {
-						System.out.println("n�o existe esse canal: " +
+						System.out.println("Não existe esse canal: " +
 								nomeCanal);
 						break;
 					}
@@ -71,14 +71,14 @@ public class MainAgenda {
 						System.out.println("Programa cadastrado com sucesso!");
 						persistencia.salvarCentral(central, "central");
 					} else {
-						System.out.println("n�o foi poss�vel cadastrar o programa!");
-						System.out.println("O programa j� existe ou n�o possui um canal.");
+						System.out.println("Não foi possível cadastrar o programa!");
+						System.out.println("O programa já existe ou não possui um canal.");
 					}
 				}
 				break;
 			case "2":
 				if (central.getTodosOsProgramas().isEmpty()) {
-					System.out.println("N�o h� nenhum programa cadastrado.");
+					System.out.println("Não há nenhum programa cadastrado.");
 				} else {
 					central.getTodosOsProgramas();
 				}
@@ -87,13 +87,13 @@ public class MainAgenda {
 				System.out.print("Tipo do Programa: ");
 				canal.getTipoCanal();
 				
-				System.out.print("\nOp��o: ");
+				System.out.print("\nOpção: ");
 				String tipoString = leia.nextLine().toUpperCase();
 				
 				if(canal.getTipoCanal().contains(tipoString)) {
 					canal.getTipoCanal();
 				} else {
-					System.out.println("n�o existe esse tipo de programa : " +
+					System.out.println("Não existe esse tipo de programa : " +
 							tipoString);
 					break;
 				}
@@ -111,8 +111,8 @@ public class MainAgenda {
 					System.out.println("Canal cadastrado com sucesso!\n");
 					persistencia.salvarCentral(central, "central");
 				} else {
-					System.out.println("n�o foi poss�vel cadastrar o canal!");
-					System.out.println("O canal j� existe.");
+					System.out.println("Não foi possível cadastrar o canal!");
+					System.out.println("O canal já existe.");
 				}
 				break;
 			case "5":
@@ -126,14 +126,14 @@ public class MainAgenda {
 				System.out.print("Canais: ");
 				central.getListaCanais();
 				
-				System.out.print("\nOp��o: ");
+				System.out.print("\nOpção: ");
 				String nomeDoCanal = leia.nextLine();
 				
 				canal = central.recuperarCanalPeloNome(nomeDoCanal);
 				if( canal != null) {
 					GeradorDeRelatorios.obterProgramacaoDeUmCanal(canal);
 				} else {
-					System.out.println("N�o foi encontrado um canal com esse nome");
+					System.out.println("Não foi encontrado um canal com esse nome");
 				}
 				break;
 			case "7":
@@ -141,7 +141,7 @@ public class MainAgenda {
 				String destinatario = leia.nextLine();
 				
 				System.out.println("enviando e-mail...");
-				Mensageiro.enviarProgramacaoDeHoje("Programa��o do dia");
+				Mensageiro.enviarProgramacaoDeHoje("Programação do dia");
 				System.out.println("e-mail enviado. cheque sua caixa de entrada ou spam");
 				break;
 			case "s":
@@ -150,7 +150,7 @@ public class MainAgenda {
 				sair = true;
 				break;
 			default:
-				System.out.println("Op��o inv�lida.");
+				System.out.println("Opção inválida.");
 				break;
 			}
 		} while (!sair);

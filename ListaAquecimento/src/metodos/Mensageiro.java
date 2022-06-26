@@ -34,7 +34,7 @@ public class Mensageiro {
 				return new PasswordAuthentication("projetopoo2022.1@gmail.com", "projeto2022");
 			}
 		});
-		/** Ativa Debug para sess�o */
+		/** Ativa Debug para sessão */
 		session.setDebug(false);
 		try {
 			Message message = new MimeMessage(session);
