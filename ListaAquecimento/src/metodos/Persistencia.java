@@ -14,6 +14,7 @@ import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 
 import midia.Canal;
 import programas.ProgramaDeTv;
+import users.Usuario;
 
 public class Persistencia {
 
@@ -54,6 +55,34 @@ public class Persistencia {
 		}
 		return new CentralDeInformacoes();
 	}
+	
+	public void salvarUsuario(Usuario u) {
+		File arquivoPadrao = new File("usuario.xml");
+		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+		xml += xstream.toXML(u);
+		try {
+			PrintWriter gravar = new PrintWriter(arquivoPadrao);
+			arquivoPadrao.createNewFile();
+			gravar.print(xml);
+			gravar.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Usuario recuperarUsuario() {
+		File arquivoPadrao = new File("usuario.xml");
+		try {
+			if (arquivoPadrao.exists()) {
+				FileInputStream fis = new FileInputStream(arquivoPadrao);
+				return (Usuario) xstream.fromXML(fis);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return new Usuario();
+	}
+	
 }
 
 
