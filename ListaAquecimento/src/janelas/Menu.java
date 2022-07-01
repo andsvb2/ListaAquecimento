@@ -18,7 +18,7 @@ public class Menu extends JanelaPadrao {
 		adicionarTitulo();
 	}
 	
-	private void adicionarTitulo() {
+	protected void adicionarTitulo() {
 		JLabel titulo = new JLabel("Menu", JLabel.CENTER);
 		titulo.setBounds(0, 0, 0, 0);
 		titulo.setHorizontalAlignment(JLabel.CENTER);
