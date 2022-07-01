@@ -17,6 +17,7 @@ public abstract class JanelaPadrao extends JFrame {
 		setTitle(titulo);
 		setSize(600, 600);
 		setResizable(false);
+		setLayout(null);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
