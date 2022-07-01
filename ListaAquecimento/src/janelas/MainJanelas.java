@@ -1,6 +1,6 @@
 package janelas;
 
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import metodos.Persistencia;
 import users.Usuario;
@@ -14,7 +14,11 @@ public class MainJanelas {
 		
 		if (usuario.getEmail() == null && usuario.getSenha() == null) {
 			JanelaDeCadastro cadastroUsuario = new JanelaDeCadastro();
+		} else {
+			JOptionPane.showMessageDialog(null, "Já cadastrou!");
 		}
+		
+		
 		
 	}
 

@@ -30,8 +30,6 @@ public class JanelaDeCadastro extends JanelaPadrao {
 		setVisible(true);
 	}
 	
-	
-	
 	public JTextField getCampoEmail() {
 		return campoEmail;
 	}
@@ -106,8 +104,6 @@ public class JanelaDeCadastro extends JanelaPadrao {
 				pe.salvarUsuario(u);
 				deuCerto = true;
 			}
-			
-			
 			
 			if (deuCerto) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
