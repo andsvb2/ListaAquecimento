@@ -25,8 +25,8 @@ public class Persistencia {
 		xstream.addPermission(NullPermission.NULL); // allow "null"
 		xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive types
 		xstream.allowTypes( new Class[] {CentralDeInformacoes.class, Persistencia.class,
-				GeradorDeRelatorios.class,
-				Canal.class, ProgramaDeTv.class, java.time.DayOfWeek.class});
+				GeradorDeRelatorios.class, Canal.class, ProgramaDeTv.class,
+				Usuario.class, java.time.DayOfWeek.class});
 	}
 	
 	public void salvarCentral(CentralDeInformacoes central) {
