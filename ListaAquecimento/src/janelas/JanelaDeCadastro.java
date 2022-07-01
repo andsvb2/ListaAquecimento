@@ -11,8 +11,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import metodos.Persistencia;
+import metodos.ValidadorEmail;
+import users.Usuario;
+
 
 public class JanelaDeCadastro extends JanelaPadrao {
+	private JTextField campoEmail;
+	private JPasswordField campoSenha;
 	
 
 	public JanelaDeCadastro() {
@@ -24,6 +30,16 @@ public class JanelaDeCadastro extends JanelaPadrao {
 		setVisible(true);
 	}
 	
+	
+	
+	public JTextField getCampoEmail() {
+		return campoEmail;
+	}
+
+	public JPasswordField getCampoSenha() {
+		return campoSenha;
+	}
+
 	protected void adicionarTitulo() {
 		ImageIcon icone = new ImageIcon();
 		JLabel titulo = new JLabel("CADASTRO", icone, JLabel.CENTER);
@@ -49,10 +65,10 @@ public class JanelaDeCadastro extends JanelaPadrao {
 	}
 	
 	protected void adicionarTextFields() {
-		JTextField campoEmail = new JTextField();
+		campoEmail = new JTextField();
 		campoEmail.setBounds(55, 35, 540, 30);
 		
-		JPasswordField campoSenha = new JPasswordField();
+		campoSenha = new JPasswordField();
 		campoSenha.setBounds(55, 70, 540, 30);
 		
 		add(campoEmail);
@@ -77,7 +93,27 @@ public class JanelaDeCadastro extends JanelaPadrao {
 		}
 		
 		public void actionPerformed(ActionEvent ouvinte) {
-			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+			String email = campoEmail.getText().trim();
+			String senha = new String (campoSenha.getPassword());
+
+			boolean deuCerto = false;
+			
+			if (ValidadorEmail.isValidEmailAddress(email)) {
+				Usuario u = new Usuario();
+				u.setEmail(email);
+				u.setSenha(senha);
+				Persistencia pe = new Persistencia();
+				pe.salvarUsuario(u);
+				deuCerto = true;
+			}
+			
+			
+			
+			if (deuCerto) {
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+			} else {
+				JOptionPane.showMessageDialog(null, "Deu erro.");
+			}
 		}
 
 	}
