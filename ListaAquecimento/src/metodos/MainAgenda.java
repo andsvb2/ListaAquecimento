@@ -13,7 +13,7 @@ public class MainAgenda {
 		Scanner leia = new Scanner(System.in);
 
 		Persistencia persistencia = new Persistencia();
-		CentralDeInformacoes central = persistencia.recuperarCentral("central");
+		CentralDeInformacoes central = persistencia.recuperarCentral();
 		Canal canal = new Canal();
 		
 		boolean sair = false;
@@ -69,7 +69,7 @@ public class MainAgenda {
 					ProgramaDeTv programa = new ProgramaDeTv(nomeCanal, null, null, canal);
 					if (central.adicionarProgramaDeTv(programa)) {
 						System.out.println("Programa cadastrado com sucesso!");
-						persistencia.salvarCentral(central, "central");
+						persistencia.salvarCentral(central);
 					} else {
 						System.out.println("Não foi possível cadastrar o programa!");
 						System.out.println("O programa já existe ou não possui um canal.");
@@ -78,25 +78,30 @@ public class MainAgenda {
 				break;
 			case "2":
 				if (central.getTodosOsProgramas().isEmpty()) {
-					System.out.println("Não há nenhum programa cadastrado.");
+					System.out.println("Não há programa cadastrado.");
 				} else {
 					central.getTodosOsProgramas();
 				}
 				break;
 			case "3":
-				System.out.print("Tipo do Programa: ");
-				canal.getTipoCanal();
-				
-				System.out.print("\nOpção: ");
-				String tipoString = leia.nextLine().toUpperCase();
-				
-				if(canal.getTipoCanal().contains(tipoString)) {
-					canal.getTipoCanal();
+				if (central.getTodosOsProgramas().isEmpty()) {
+					System.out.println("Não há programa cadastrado.");
 				} else {
-					System.out.println("Não existe esse tipo de programa : " +
-							tipoString);
-					break;
+					System.out.print("Tipo do Programa: ");
+					canal.getTipoCanal();
+					
+					System.out.print("\nOpção: ");
+					String tipoString = leia.nextLine().toUpperCase();
+					
+					if(canal.getTipoCanal().contains(tipoString)) {
+						canal.getTipoCanal();
+					} else {
+						System.out.println("Não existe esse tipo de programa : " +
+								tipoString);
+						break;
+					}
 				}
+				
 				break;
 			case "4":
 				System.out.println("-- dados do canal --");
@@ -107,9 +112,11 @@ public class MainAgenda {
 				System.out.print("Tipo do canal: ");
 				String tipoCanal = leia.nextLine();
 				
-				if (central.adicionarCanal(canal)) {
+				Canal c = new Canal(nomeCanal, tipoCanal);
+				
+				if (central.adicionarCanal(c)) {
 					System.out.println("Canal cadastrado com sucesso!\n");
-					persistencia.salvarCentral(central, "central");
+					persistencia.salvarCentral(central);
 				} else {
 					System.out.println("Não foi possível cadastrar o canal!");
 					System.out.println("O canal já existe.");
@@ -119,7 +126,9 @@ public class MainAgenda {
 				if (central.getListaCanais().isEmpty()) {
 					System.out.println("nenhum canal cadastrado.\n");
 				} else {
-					central.getListaCanais();
+					ArrayList<Canal> listaCanais = central.getListaCanais();
+					for (Canal c1 : listaCanais)
+						System.out.println(c1);
 				}
 				break;
 			case "6":

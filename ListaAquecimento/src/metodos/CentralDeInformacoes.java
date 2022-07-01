@@ -6,8 +6,8 @@ import programas.ProgramaDeTv;
 
 public class CentralDeInformacoes {
 
-	private ArrayList<ProgramaDeTv> todosOsProgramas;
-	private ArrayList<Canal> listaCanais;
+	private ArrayList<ProgramaDeTv> todosOsProgramas = new ArrayList<>();
+	private ArrayList<Canal> listaCanais = new ArrayList<>();
 
 	public boolean adicionarProgramaDeTv(ProgramaDeTv programa) {
 		if (recuperarProgramaDeTvPeloId(programa) == null) {
@@ -47,10 +47,10 @@ public class CentralDeInformacoes {
 	}
 
 	public Canal recuperarCanalPeloNome(String nomeTeste) {
-		for (Canal c : listaCanais) {
-			if (nomeTeste.equals(c.getNomeCanal()))
-				return c;
-		}
+			for (Canal c : listaCanais) {
+				if (nomeTeste.equals(c.getNomeCanal()))
+					return c;
+			}
 		return null;
 	}
 }

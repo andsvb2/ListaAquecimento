@@ -26,11 +26,11 @@ public class Persistencia {
 		xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive types
 		xstream.allowTypes( new Class[] {CentralDeInformacoes.class, Persistencia.class,
 				GeradorDeRelatorios.class,
-				Canal.class, ProgramaDeTv.class});
+				Canal.class, ProgramaDeTv.class, java.time.DayOfWeek.class});
 	}
 	
-	public void salvarCentral(CentralDeInformacoes central, String nome) {
-		File arquivoPadrao = new File(nome + ".xml");
+	public void salvarCentral(CentralDeInformacoes central) {
+		File arquivoPadrao = new File("central.xml");
 		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(central);
 		try {
@@ -43,8 +43,8 @@ public class Persistencia {
 		}
 	}
 	
-	public CentralDeInformacoes recuperarCentral(String nome) {
-		File arquivoPadrao = new File(nome + ".xml");
+	public CentralDeInformacoes recuperarCentral() {
+		File arquivoPadrao = new File("central.xml");
 		try {
 			if (arquivoPadrao.exists()) {
 				FileInputStream fis = new FileInputStream(arquivoPadrao);
