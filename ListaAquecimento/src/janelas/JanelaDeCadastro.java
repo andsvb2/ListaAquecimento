@@ -1,8 +1,8 @@
 package janelas;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Font;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 
 public class JanelaDeCadastro extends JanelaPadrao {
+	
 
 	public JanelaDeCadastro() {
 		super("Cadastro");
@@ -62,7 +63,7 @@ public class JanelaDeCadastro extends JanelaPadrao {
 		JButton botaoCadastro = new JButton("Finalizar cadastro");
 		OuvinteBotaoCadastrar ouvinte = new OuvinteBotaoCadastrar(this);
 		
-		botaoCadastro.setBounds(10, 80, 30, 30);
+		botaoCadastro.setBounds(5, 120, 140, 30);
 //		botaoCadastro.setIcon(new ImageIcon());
 		botaoCadastro.addActionListener(ouvinte);
 		add(botaoCadastro);
