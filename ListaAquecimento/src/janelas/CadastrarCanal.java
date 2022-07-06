@@ -73,13 +73,12 @@ public class CadastrarCanal extends JanelaPadrao {
 	
 	private void adicionarCombo() {
 		combo = new JComboBox<String>();
-		// TODO: consertar lógica
 		
-		combo.add("Canal aberto");
-		combo.add("Broadcasting aberto");
-		combo.add("Pacote de assinatura");
-		combo.add("Assinatura individual de televisão");
-		combo.add("Assinatura individual de broadcasting");
+		combo.addItem("Canal aberto");
+		combo.addItem("Broadcasting aberto");
+		combo.addItem("Pacote de assinatura");
+		combo.addItem("Assinatura individual de televisão");
+		combo.addItem("Assinatura individual de broadcasting");
 		combo.setBounds(getBounds());
 		add(combo);
 	}
