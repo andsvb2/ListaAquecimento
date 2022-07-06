@@ -60,6 +60,7 @@ public class JanelaDeBroadcasting extends JanelaPadrao {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			boolean deuCerto = false;
+			// TODO implementar lógica.
 
 			if (deuCerto) {
 				JOptionPane.showMessageDialog(null, "Link copiado com sucesso");
