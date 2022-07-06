@@ -74,27 +74,27 @@ public class Menu extends JanelaPadrao {
 			switch (opcao) {
 			case "Cadastrar canal":
 				dispose();
-				new cadastrarCanal();
+//				new cadastrarCanal();
 				break;
 			case "Cadastrar programa":
 				dispose();
-				new cadastrarPrograma();
+//				new cadastrarPrograma();
 				break;
 			case "Listar todos os canais":
 				dispose();
-				new listarCanais();
+//				new listarCanais();
 				break;
 			case "Listar todos os programas":
 				dispose();
-				new listarProgramas();
+//				new listarProgramas();
 				break;
 			case "Gerar programação de séries em PDF":
 				dispose();
-				new gerarProgramacao();
+//				new gerarProgramacao();
 				break;
 			case "Enviar programação de séries da semana por email":
 				dispose();
-				new enviarEmail();
+//				new enviarEmail();
 				break;
 			case "Deletar cadastro":
 				dispose();
@@ -104,6 +104,18 @@ public class Menu extends JanelaPadrao {
 				break;
 			}
 		}
+		
+	}
+
+	@Override
+	protected void adicionarLabels() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void adicionarTextFields() {
+		// TODO Auto-generated method stub
 		
 	}
 }
