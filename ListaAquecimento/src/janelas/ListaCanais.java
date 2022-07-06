@@ -10,7 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public abstract class ListaCanais extends JanelaPadrao{
+public class ListaCanais extends JanelaPadrao{
 
 	public ListaCanais() {
 		super("Lista de canais");
@@ -33,7 +33,7 @@ public abstract class ListaCanais extends JanelaPadrao{
 		
 		modelo.addColumn("Nome do canal");
 		modelo.addColumn("Tipo");
-		modelo.addColumn("N�mero do canal");
+		modelo.addColumn("Número do canal");
 		
 		JTable tabela = new JTable(modelo);
 		JScrollPane painelTabela = new JScrollPane();

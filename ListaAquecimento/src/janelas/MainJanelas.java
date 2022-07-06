@@ -1,5 +1,6 @@
 package janelas;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import metodos.Persistencia;
@@ -18,8 +19,5 @@ public class MainJanelas {
 			JOptionPane.showMessageDialog(null, "Já cadastrou!");
 		}
 		
-		
-		
 	}
-
 }
