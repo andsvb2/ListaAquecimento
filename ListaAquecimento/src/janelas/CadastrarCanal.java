@@ -20,6 +20,11 @@ public class CadastrarCanal extends JanelaPadrao {
 	public CadastrarCanal() {
 		super("Cadastro de canal");
 		adicionarTitulo();
+		adicionarLabels();
+		adicionarTextFields();
+		adicionarBotoes();
+		adicionarCombo();
+		setVisible(true);
 	}
 
 	private void adicionarTitulo() {
@@ -46,6 +51,7 @@ public class CadastrarCanal extends JanelaPadrao {
 	private void adicionarTextFields() {
 		JTextField campoNome = new JTextField();
 		campoNome.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		add(campoNome);
 		
 		try {
 			MaskFormatter mascara = new MaskFormatter("####");
@@ -67,6 +73,7 @@ public class CadastrarCanal extends JanelaPadrao {
 	
 	private void adicionarCombo() {
 		combo = new JComboBox<String>();
+		// TODO: consertar lógica
 		
 		combo.add("Canal aberto");
 		combo.add("Broadcasting aberto");
@@ -86,6 +93,7 @@ public class CadastrarCanal extends JanelaPadrao {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			boolean deuCerto = false;
+			// TODO: implementar lógica. do jeito que está a flag não é alterada. 
 			
 			if (deuCerto) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
@@ -102,8 +110,8 @@ public class CadastrarCanal extends JanelaPadrao {
 			String opcao = (String) combo.getSelectedItem();
 			
 			if(opcao.equals("Canal aberto") 
-					&& opcao.equals("Pacote de assinatura") 
-					&& opcao.equals("Assinatura individual de televisão")) {
+					|| opcao.equals("Pacote de assinatura") 
+					|| opcao.equals("Assinatura individual de televisão")) {
 				tfNumero.setEditable(true);
 			} else {
 				dispose();
