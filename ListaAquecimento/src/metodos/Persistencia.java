@@ -16,20 +16,22 @@ import midia.Canal;
 import programas.ProgramaDeTv;
 import users.Usuario;
 
-public class Persistencia {
+public abstract class Persistencia {
 
-	private XStream xstream = new XStream(new DomDriver("UTF-8"));
+	private static XStream xstream = new XStream(new DomDriver("UTF-8"));
 	
 	public Persistencia() {
+		
 		xstream.addPermission(NoTypePermission.NONE); //forbid everything
 		xstream.addPermission(NullPermission.NULL); // allow "null"
 		xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive types
 		xstream.allowTypes( new Class[] {CentralDeInformacoes.class, Persistencia.class,
 				GeradorDeRelatorios.class, Canal.class, ProgramaDeTv.class,
 				Usuario.class, java.time.DayOfWeek.class});
+		xstream.allowTypesByWildcard(new String[]{"metodos.*"});
 	}
 	
-	public void salvarCentral(CentralDeInformacoes central) {
+	public static void salvarCentral(CentralDeInformacoes central) {
 		File arquivoPadrao = new File("central.xml");
 		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(central);
@@ -43,7 +45,7 @@ public class Persistencia {
 		}
 	}
 	
-	public CentralDeInformacoes recuperarCentral() {
+	public static CentralDeInformacoes recuperarCentral() {
 		File arquivoPadrao = new File("central.xml");
 		try {
 			if (arquivoPadrao.exists()) {
@@ -56,7 +58,7 @@ public class Persistencia {
 		return new CentralDeInformacoes();
 	}
 	
-	public void salvarUsuario(Usuario u) {
+	public static void salvarUsuario(Usuario u) {
 		File arquivoPadrao = new File("usuario.xml");
 		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(u);
@@ -70,7 +72,7 @@ public class Persistencia {
 		}
 	}
 	
-	public Usuario recuperarUsuario() {
+	public static Usuario recuperarUsuario() {
 		File arquivoPadrao = new File("usuario.xml");
 		try {
 			if (arquivoPadrao.exists()) {
