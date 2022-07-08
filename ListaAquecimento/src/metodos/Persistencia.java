@@ -20,6 +20,9 @@ public final class Persistencia {
 
 	private static Persistencia instancia;
 	private XStream xstream = new XStream(new DomDriver("UTF-8"));
+	private File centralPadrao = new File("central.xml");
+	private File usuarioPadrao = new File("usuario.xml");
+	private String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
 	private Persistencia() {
 
@@ -44,12 +47,10 @@ public final class Persistencia {
 	}
 
 	public void salvarCentral(CentralDeInformacoes central) {
-		File arquivoPadrao = new File("central.xml");
-		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(central);
 		try {
-			PrintWriter gravar = new PrintWriter(arquivoPadrao);
-			arquivoPadrao.createNewFile();
+			PrintWriter gravar = new PrintWriter(centralPadrao);
+			centralPadrao.createNewFile();
 			gravar.print(xml);
 			gravar.close();
 		} catch (IOException e) {
@@ -58,10 +59,9 @@ public final class Persistencia {
 	}
 
 	public CentralDeInformacoes recuperarCentral() {
-		File arquivoPadrao = new File("central.xml");
 		try {
-			if (arquivoPadrao.exists()) {
-				FileInputStream fis = new FileInputStream(arquivoPadrao);
+			if (centralPadrao.exists()) {
+				FileInputStream fis = new FileInputStream(centralPadrao);
 				return (CentralDeInformacoes) xstream.fromXML(fis);
 			}
 		} catch (FileNotFoundException e) {
@@ -71,12 +71,10 @@ public final class Persistencia {
 	}
 
 	public void salvarUsuario(Usuario u) {
-		File arquivoPadrao = new File("usuario.xml");
-		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(u);
 		try {
-			PrintWriter gravar = new PrintWriter(arquivoPadrao);
-			arquivoPadrao.createNewFile();
+			PrintWriter gravar = new PrintWriter(usuarioPadrao);
+			usuarioPadrao.createNewFile();
 			gravar.print(xml);
 			gravar.close();
 		} catch (IOException e) {
@@ -85,10 +83,9 @@ public final class Persistencia {
 	}
 
 	public Usuario recuperarUsuario() {
-		File arquivoPadrao = new File("usuario.xml");
 		try {
-			if (arquivoPadrao.exists()) {
-				FileInputStream fis = new FileInputStream(arquivoPadrao);
+			if (usuarioPadrao.exists()) {
+				FileInputStream fis = new FileInputStream(usuarioPadrao);
 				return (Usuario) xstream.fromXML(fis);
 			}
 		} catch (FileNotFoundException e) {
