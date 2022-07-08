@@ -67,7 +67,7 @@ public final class Persistencia {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		return new CentralDeInformacoes();
+		return CentralDeInformacoes.getInstancia();
 	}
 
 	public void salvarUsuario(Usuario u) {

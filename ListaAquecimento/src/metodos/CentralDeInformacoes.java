@@ -4,11 +4,22 @@ import java.util.ArrayList;
 import midia.Canal;
 import programas.ProgramaDeTv;
 
-public class CentralDeInformacoes {
-
+public final class CentralDeInformacoes {
+	
+	private static CentralDeInformacoes instancia;
 	private ArrayList<ProgramaDeTv> todosOsProgramas = new ArrayList<>();
 	private ArrayList<Canal> listaCanais = new ArrayList<>();
 
+	private CentralDeInformacoes() {
+	}
+	
+	public static CentralDeInformacoes getInstancia() {
+		if (instancia == null) {
+			instancia = new CentralDeInformacoes();
+		}
+		return instancia;
+	}
+	
 	public boolean adicionarProgramaDeTv(ProgramaDeTv programa) {
 		if (recuperarProgramaDeTvPeloId(programa) == null) {
 			todosOsProgramas.add(programa);

@@ -10,7 +10,7 @@ public class MainJanelas {
 
 	public static void main(String[] args) {
 		
-		Persistencia pe = new Persistencia();
+		Persistencia pe = Persistencia.getInstancia();
 		Usuario usuario = pe.recuperarUsuario();
 		
 		if (usuario.getEmail() == null && usuario.getSenha() == null) {

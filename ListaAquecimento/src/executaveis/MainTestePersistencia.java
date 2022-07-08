@@ -13,8 +13,8 @@ public class MainTestePersistencia {
 
 	public static void main(String[] args) {
 		
-		Persistencia pe = new Persistencia();
-		CentralDeInformacoes central = new CentralDeInformacoes();
+		Persistencia pe = Persistencia.getInstancia();
+		CentralDeInformacoes central = pe.recuperarCentral();
 		
 		Canal c = new Canal("SBT", "Canal aberto");
 		
