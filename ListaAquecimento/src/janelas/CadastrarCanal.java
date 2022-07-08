@@ -12,10 +12,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import metodos.CentralDeInformacoes;
+import metodos.Persistencia;
+
 public class CadastrarCanal extends JanelaPadrao {
 	
 	private JComboBox<String> combo;
 	private JFormattedTextField tfNumero;
+	private Persistencia pe = Persistencia.getInstancia();
+	private CentralDeInformacoes central = pe.recuperarCentral();
 
 	public CadastrarCanal() {
 		super("Cadastro de canal");
