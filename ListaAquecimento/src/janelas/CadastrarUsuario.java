@@ -107,6 +107,8 @@ public class CadastrarUsuario extends JanelaPadrao {
 			
 			if (deuCerto) {
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+				dispose();
+				new CadastrarCanal();
 			} else {
 				JOptionPane.showMessageDialog(null, "Deu erro.");
 			}

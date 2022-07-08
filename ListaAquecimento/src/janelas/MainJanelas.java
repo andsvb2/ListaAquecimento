@@ -10,13 +10,14 @@ public class MainJanelas {
 
 	public static void main(String[] args) {
 		
+		JanelaPadrao janela;
 		Persistencia pe = Persistencia.getInstancia();
 		Usuario usuario = pe.recuperarUsuario();
 		
 		if (usuario.getEmail() == null && usuario.getSenha() == null) {
-			CadastrarUsuario cadastroUsuario = new CadastrarUsuario();
+			janela = new CadastrarUsuario();
 		} else {
-			JOptionPane.showMessageDialog(null, "Já cadastrou!");
+			janela = new LogarUsuario();
 		}
 		
 	}
