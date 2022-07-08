@@ -40,7 +40,7 @@ public class Mensageiro {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("projetopoo2022.1@gmail.com"));
 			Address[] toUser = InternetAddress
-					.parse("mariabitargino123@gmail.com");
+					.parse("mariabitargino123@gmail.com, svieira.anderson@gmail.com");
 			message.setRecipients(Message.RecipientType.TO, toUser);
 			message.setSubject("Testando JavaMail");
 			message.setText("Enviando email");
