@@ -139,9 +139,9 @@ private void adicionarMenu() {
 //				new enviarEmail();
 				break;
 			case "Deletar cadastro":
-				if (!(janela instanceof JanelaDeCadastro)) {
+				if (!(janela instanceof CadastrarUsuario)) {
 					dispose();
-					new JanelaDeCadastro();
+					new CadastrarUsuario();
 				}
 				break;
 			default:

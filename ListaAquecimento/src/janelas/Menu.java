@@ -98,7 +98,7 @@ public class Menu extends JanelaPadrao {
 				break;
 			case "Deletar cadastro":
 				dispose();
-				new JanelaDeCadastro();
+				new CadastrarUsuario();
 				break;
 			default:
 				break;

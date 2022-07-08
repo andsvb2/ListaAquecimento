@@ -16,12 +16,12 @@ import metodos.ValidadorEmail;
 import users.Usuario;
 
 
-public class JanelaDeCadastro extends JanelaPadrao {
+public class CadastrarUsuario extends JanelaPadrao {
 	private JTextField campoEmail;
 	private JPasswordField campoSenha;
 	
 
-	public JanelaDeCadastro() {
+	public CadastrarUsuario() {
 		super("Cadastro");
 		adicionarTitulo();
 		adicionarLabels();
@@ -84,9 +84,9 @@ public class JanelaDeCadastro extends JanelaPadrao {
 	}
 	
 	private class OuvinteBotaoCadastrar implements ActionListener{
-		private JanelaDeCadastro janela;
+		private CadastrarUsuario janela;
 		
-		private OuvinteBotaoCadastrar(JanelaDeCadastro janela) {
+		private OuvinteBotaoCadastrar(CadastrarUsuario janela) {
 			this.janela = janela;
 		}
 		
@@ -100,8 +100,9 @@ public class JanelaDeCadastro extends JanelaPadrao {
 				Usuario u = new Usuario();
 				u.setEmail(email);
 				u.setSenha(senha);
-				Persistencia pe = new Persistencia();
-				pe.salvarUsuario(u);
+				Persistencia.salvarUsuario(u);
+//				Persistencia pe = new Persistencia();
+//				pe.salvarUsuario(u);
 				deuCerto = true;
 			}
 			

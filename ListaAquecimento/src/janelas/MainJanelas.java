@@ -14,7 +14,7 @@ public class MainJanelas {
 		Usuario usuario = pe.recuperarUsuario();
 		
 		if (usuario.getEmail() == null && usuario.getSenha() == null) {
-			JanelaDeCadastro cadastroUsuario = new JanelaDeCadastro();
+			CadastrarUsuario cadastroUsuario = new CadastrarUsuario();
 		} else {
 			JOptionPane.showMessageDialog(null, "Já cadastrou!");
 		}
