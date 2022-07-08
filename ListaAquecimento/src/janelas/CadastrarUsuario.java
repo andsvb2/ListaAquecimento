@@ -100,9 +100,8 @@ public class CadastrarUsuario extends JanelaPadrao {
 				Usuario u = new Usuario();
 				u.setEmail(email);
 				u.setSenha(senha);
-				Persistencia.salvarUsuario(u);
-//				Persistencia pe = new Persistencia();
-//				pe.salvarUsuario(u);
+				Persistencia pe = Persistencia.getInstancia();
+				pe.salvarUsuario(u);
 				deuCerto = true;
 			}
 			

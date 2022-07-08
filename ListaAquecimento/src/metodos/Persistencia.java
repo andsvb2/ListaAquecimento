@@ -16,22 +16,34 @@ import midia.Canal;
 import programas.ProgramaDeTv;
 import users.Usuario;
 
-public abstract class Persistencia {
+public final class Persistencia {
 
-	private static XStream xstream = new XStream(new DomDriver("UTF-8"));
-	
-	public Persistencia() {
+	private static Persistencia instancia;
+	private XStream xstream = new XStream(new DomDriver("UTF-8"));
+
+	private Persistencia() {
+
+//		xstream.addPermission(AnyTypePermission.ANY);
+
 		
-		xstream.addPermission(NoTypePermission.NONE); //forbid everything
-		xstream.addPermission(NullPermission.NULL); // allow "null"
-		xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive types
-		xstream.allowTypes( new Class[] {CentralDeInformacoes.class, Persistencia.class,
-				GeradorDeRelatorios.class, Canal.class, ProgramaDeTv.class,
-				Usuario.class, java.time.DayOfWeek.class});
-		xstream.allowTypesByWildcard(new String[]{"metodos.*"});
+		  xstream.addPermission(NoTypePermission.NONE); //forbid everything
+		  xstream.addPermission(NullPermission.NULL); // allow "null"
+		  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive
+		  xstream.allowTypes( new Class[] {CentralDeInformacoes.class,
+		  Persistencia.class, GeradorDeRelatorios.class, Canal.class,
+		  ProgramaDeTv.class, Usuario.class, java.time.DayOfWeek.class});
+		  xstream.allowTypesByWildcard(new String[]{"metodos.*"});
+		 
 	}
 	
-	public static void salvarCentral(CentralDeInformacoes central) {
+	public static Persistencia getInstancia() {
+		if (instancia == null) {
+			instancia = new Persistencia();
+		}
+		return instancia;
+	}
+
+	public void salvarCentral(CentralDeInformacoes central) {
 		File arquivoPadrao = new File("central.xml");
 		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(central);
@@ -44,8 +56,8 @@ public abstract class Persistencia {
 			e.printStackTrace();
 		}
 	}
-	
-	public static CentralDeInformacoes recuperarCentral() {
+
+	public CentralDeInformacoes recuperarCentral() {
 		File arquivoPadrao = new File("central.xml");
 		try {
 			if (arquivoPadrao.exists()) {
@@ -57,8 +69,8 @@ public abstract class Persistencia {
 		}
 		return new CentralDeInformacoes();
 	}
-	
-	public static void salvarUsuario(Usuario u) {
+
+	public void salvarUsuario(Usuario u) {
 		File arquivoPadrao = new File("usuario.xml");
 		String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 		xml += xstream.toXML(u);
@@ -71,8 +83,8 @@ public abstract class Persistencia {
 			e.printStackTrace();
 		}
 	}
-	
-	public static Usuario recuperarUsuario() {
+
+	public Usuario recuperarUsuario() {
 		File arquivoPadrao = new File("usuario.xml");
 		try {
 			if (arquivoPadrao.exists()) {
@@ -84,7 +96,5 @@ public abstract class Persistencia {
 		}
 		return new Usuario();
 	}
-	
+
 }
-
-

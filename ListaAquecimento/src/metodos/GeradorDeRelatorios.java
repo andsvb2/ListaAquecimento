@@ -17,7 +17,8 @@ public class GeradorDeRelatorios {
 
 	public static void obterProgramacaoDeUmCanal(Canal canal) {
 
-		CentralDeInformacoes central = Persistencia.recuperarCentral();
+		Persistencia pe = Persistencia.getInstancia();
+		CentralDeInformacoes central = pe.recuperarCentral();
 		
 		Document doc = new Document(PageSize.A4);
 		try {

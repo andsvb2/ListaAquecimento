@@ -12,7 +12,8 @@ public class MainAgenda {
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
 
-		CentralDeInformacoes central = Persistencia.recuperarCentral();
+		Persistencia pe = Persistencia.getInstancia();
+		CentralDeInformacoes central = pe.recuperarCentral();
 		Canal canal = new Canal();
 		
 		boolean sair = false;
@@ -68,7 +69,7 @@ public class MainAgenda {
 					ProgramaDeTv programa = new ProgramaDeTv(nomeCanal, null, null, canal);
 					if (central.adicionarProgramaDeTv(programa)) {
 						System.out.println("Programa cadastrado com sucesso!");
-						Persistencia.salvarCentral(central);
+						pe.salvarCentral(central);
 					} else {
 						System.out.println("Não foi possível cadastrar o programa!");
 						System.out.println("O programa já existe ou não possui um canal.");
@@ -115,7 +116,7 @@ public class MainAgenda {
 				
 				if (central.adicionarCanal(c)) {
 					System.out.println("Canal cadastrado com sucesso!\n");
-					Persistencia.salvarCentral(central);
+					pe.salvarCentral(central);
 				} else {
 					System.out.println("Não foi possível cadastrar o canal!");
 					System.out.println("O canal já existe.");
