@@ -19,6 +19,7 @@ public class JanelaPadrao extends JFrame {
 		setResizable(false);
 		setLayout(null);
 		setLocationRelativeTo(null);
+		adicionarMenu();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	
