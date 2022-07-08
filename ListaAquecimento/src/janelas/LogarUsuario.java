@@ -17,7 +17,7 @@ import metodos.Persistencia;
 import users.Usuario;
 
 
-public class LogarUsuario extends JanelaPadrao {
+public class LogarUsuario extends LoginPadrao {
 	private JTextField campoEmail;
 	private JPasswordField campoSenha;
 	
@@ -27,7 +27,7 @@ public class LogarUsuario extends JanelaPadrao {
 		adicionarTitulo();
 		adicionarLabels();
 		adicionarTextFields();
-		adicionarBotaoLogin();
+		adicionarBotao();
 		setVisible(true);
 	}
 	
@@ -74,7 +74,7 @@ public class LogarUsuario extends JanelaPadrao {
 		add(campoSenha);
 	}
 	
-	private void adicionarBotaoLogin() {
+	protected void adicionarBotao() {
 		JButton botaoLogin = new JButton("Entrar");
 		OuvinteBotaoLogin ouvinte = new OuvinteBotaoLogin(this);
 		

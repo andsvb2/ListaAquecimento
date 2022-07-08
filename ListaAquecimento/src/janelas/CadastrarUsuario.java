@@ -16,7 +16,7 @@ import metodos.ValidadorEmail;
 import users.Usuario;
 
 
-public class CadastrarUsuario extends JanelaPadrao {
+public class CadastrarUsuario extends LoginPadrao {
 	private JTextField campoEmail;
 	private JPasswordField campoSenha;
 	
@@ -26,7 +26,7 @@ public class CadastrarUsuario extends JanelaPadrao {
 		adicionarTitulo();
 		adicionarLabels();
 		adicionarTextFields();
-		adicionarBotaoCadastro();
+		adicionarBotao();
 		setVisible(true);
 	}
 	
@@ -73,7 +73,7 @@ public class CadastrarUsuario extends JanelaPadrao {
 		add(campoSenha);
 	}
 	
-	private void adicionarBotaoCadastro() {
+	protected void adicionarBotao() {
 		JButton botaoCadastro = new JButton("Finalizar cadastro");
 		OuvinteBotaoCadastrar ouvinte = new OuvinteBotaoCadastrar(this);
 		
