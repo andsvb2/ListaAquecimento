@@ -12,6 +12,12 @@ public class Usuario {
 	public Usuario() {
 		id = System.currentTimeMillis();
 	}
+	
+	public Usuario(String email, String senha) {
+		super();
+		this.email = email;
+		this.senha = senha;
+	}
 
 	public String getNome() {
 		return nome;
