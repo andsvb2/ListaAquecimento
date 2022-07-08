@@ -11,8 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import excecoes.LoginInvalidoException;
+import excecoes.SenhaInvalidaException;
 import metodos.Persistencia;
-import metodos.ValidadorEmail;
 import users.Usuario;
 
 
@@ -83,6 +84,7 @@ public class LogarUsuario extends JanelaPadrao {
 		add(botaoLogin);
 	}
 	
+	
 	private class OuvinteBotaoLogin implements ActionListener{
 		private LogarUsuario janela;
 		
@@ -90,31 +92,45 @@ public class LogarUsuario extends JanelaPadrao {
 			this.janela = janela;
 		}
 		
+		private boolean verificarUsuario(Usuario temp, Usuario existente) 
+				throws LoginInvalidoException, SenhaInvalidaException {
+			
+			if (temp.equals(existente))
+				return true;
+			
+			if ((temp.getEmail().equals(existente.getEmail()) == false) 
+					|| temp.getEmail().equals("") 
+					|| temp.getEmail() == null)
+				throw new LoginInvalidoException();
+			
+			if ((temp.getSenha().equals(existente.getSenha()) == false) 
+					|| temp.getSenha().equals("") 
+					|| temp.getSenha() == null)
+				throw new SenhaInvalidaException();
+			
+			return false;
+		}
+		
 		public void actionPerformed(ActionEvent ouvinte) {
 			String email = campoEmail.getText().trim();
 			String senha = new String (campoSenha.getPassword());
 
-			boolean deuCerto = false;
+			boolean deuCerto;
 			
 			Persistencia pe = Persistencia.getInstancia();
 			Usuario temp = new Usuario(email, senha);
 			Usuario existente = pe.recuperarUsuario();
-			
-			if (temp.equals(existente)) {
-				deuCerto = true;
+
+			try {
+				this.verificarUsuario(temp, existente);
 				dispose();
 				new CadastrarCanal();
+			} catch (LoginInvalidoException lie) {
+				JOptionPane.showMessageDialog(null, lie.getMessage());
+			} catch (SenhaInvalidaException sie) {
+				JOptionPane.showMessageDialog(null, sie.getMessage());
 			}
 			
-			if ((temp.getEmail().equals(existente.getEmail()) == false)
-					&& (temp.getSenha().equals(existente.getSenha()) == false)) {
-				JOptionPane.showMessageDialog(null, "Email e senha são diferentes dos cadastrados.");
-			} else if (temp.getEmail().equals(existente.getEmail()) == false) {
-				JOptionPane.showMessageDialog(null, "Email diferente do cadastrado.");
-			} else {
-				JOptionPane.showMessageDialog(null, "Senha diferente da cadastrada.");
-			}
-		
 		}
 
 	}
