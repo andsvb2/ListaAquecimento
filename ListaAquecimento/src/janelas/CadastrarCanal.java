@@ -42,20 +42,21 @@ public class CadastrarCanal extends JanelaPadrao {
 	}
 
 	private void adicionarLabels() {
-		JLabel nomeDoCanal = new JLabel("Nome do canal");
-		nomeDoCanal.setBounds(getBounds());
-		nomeDoCanal.setOpaque(true);
+		JLabel nomeDoCanal = new JLabel("Nome:");
+		nomeDoCanal.setBounds(5, 35, 55, 30);
+		nomeDoCanal.setHorizontalAlignment(JLabel.CENTER);
 		add(nomeDoCanal);
 		
-		JLabel numeroDoCanal = new JLabel("Número do canal");
-		numeroDoCanal.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		JLabel numeroDoCanal = new JLabel("Número:");
+		numeroDoCanal.setBounds(5, 70, 55, 30);
+		numeroDoCanal.setHorizontalAlignment(JLabel.CENTER);
 		numeroDoCanal.setOpaque(true);
-		add(nomeDoCanal);
+		add(numeroDoCanal);
 	}
 
 	private void adicionarTextFields() {
 		JTextField campoNome = new JTextField();
-		campoNome.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		campoNome.setBounds(65, 35, 540, 30);
 		add(campoNome);
 		
 		try {
