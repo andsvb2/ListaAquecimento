@@ -70,6 +70,8 @@ public class CadastrarCanal extends JanelaPadrao {
 		botaoEditar.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
 		add(botaoEditar);
 	}
+
+	// comentário de teste
 	
 	private void adicionarCombo() {
 		combo = new JComboBox<String>();
