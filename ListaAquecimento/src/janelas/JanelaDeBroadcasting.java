@@ -5,14 +5,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.text.MaskFormatter;
+
+import metodos.CentralDeInformacoes;
+import metodos.Persistencia;
 
 public class JanelaDeBroadcasting extends JanelaPadrao {
 
+	private Persistencia pe = Persistencia.getInstancia();
+	private CentralDeInformacoes central = pe.recuperarCentral();
+	
 	public JanelaDeBroadcasting() {
 		super("Broadcasting");
 		adicionarTitulo();
@@ -22,6 +26,7 @@ public class JanelaDeBroadcasting extends JanelaPadrao {
 		setVisible(true);
 	}
 
+		
 	private void adicionarTitulo() {
 		JLabel titulo = new JLabel("Broadcasting", JLabel.CENTER);
 		titulo.setBounds(0, 0, 600, 30);
@@ -59,14 +64,18 @@ public class JanelaDeBroadcasting extends JanelaPadrao {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			boolean deuCerto = false;
+			boolean deuCerto = true;
 			// TODO implementar lógica.
 
 			if (deuCerto) {
 				JOptionPane.showMessageDialog(null, "Link copiado com sucesso");
+				// TODO: corrigir isso
+				central.adicionarCanal();
 			} else {
 				JOptionPane.showMessageDialog(null, "Link não pôde ser copiado");
 			}
 		}
+		// TODO: corrigir isso
+		pe.salvarCentral(central);
 	}
 }

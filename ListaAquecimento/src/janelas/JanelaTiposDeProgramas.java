@@ -10,8 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import metodos.CentralDeInformacoes;
+import metodos.Persistencia;
+
 
 public class JanelaTiposDeProgramas extends JanelaPadrao{
+
+	private Persistencia pe = Persistencia.getInstancia();
+	private CentralDeInformacoes central = pe.recuperarCentral();
 
 	public JanelaTiposDeProgramas() {
 		super("Reality shows/Programas contínuos");
@@ -22,6 +28,7 @@ public class JanelaTiposDeProgramas extends JanelaPadrao{
 		setVisible(true);
 	}
 
+		
 	protected void adicionarTitulo() {
 		JLabel titulo = new JLabel("Cadastrar Programa", JLabel.CENTER);
 		titulo.setBounds(0, 0, 600, 30);
@@ -59,12 +66,10 @@ public class JanelaTiposDeProgramas extends JanelaPadrao{
 	protected void adicionarCombo() {
 		JComboBox<String> combo = new JComboBox<String>();
 		
-		combo.addItem("-- Status do programa --");
-		combo.addItem("Em exibição");
-		combo.addItem("Hiato");
-		combo.addItem("Finalizado");
-		combo.addItem("Cancelado");
+		String comboStatusDoPrograma[] = {"Status do programa", "Em exibição", "Hiato", "Finalizado", "Cancelado"};
 		combo.setBounds(55,75,100,30);
+		
+		combo = new JComboBox(comboStatusDoPrograma);
 		
 		add(combo);
 	}
@@ -86,6 +91,11 @@ public class JanelaTiposDeProgramas extends JanelaPadrao{
 		
 		public void actionPerformed(ActionEvent ouvinte) {
 			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+		
+			// TODO: corrigir isso
+			central.adicionarProgramaDeTV();
 		}
 	}
+	// TODO: corrigir isso
+	pe.salvarCentral(central);
 }
