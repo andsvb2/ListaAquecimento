@@ -10,7 +10,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import metodos.CentralDeInformacoes;
+import metodos.Persistencia;
+
 public class JanelaCadastroPrograma extends JanelaPadrao{
+
+	private Persistencia pe = Persistencia.getInstancia();
+	private CentralDeInformacoes central = pe.recuperarCentral();
 
 	public JanelaCadastroPrograma() {
 		super("Cadastro");
@@ -22,6 +28,7 @@ public class JanelaCadastroPrograma extends JanelaPadrao{
 		setVisible(true);
 	}
 
+		
 	protected void adicionarTitulo() {
 		JLabel titulo = new JLabel("Cadastrar Programa", JLabel.CENTER);
 		titulo.setBounds(0, 0, 600, 30);
@@ -59,29 +66,24 @@ public class JanelaCadastroPrograma extends JanelaPadrao{
 	private void adicionarCombo() {
 		JComboBox<String> combo = new JComboBox<String>();
 
-		combo.addItem("-- Escolha uma opção --");
-		combo.addItem("Séries regulares");
-		combo.addItem("Reality shows");
-		combo.addItem("Programas contínuos");
+		String[] comboTipos = {"Escolha uma opção", "Séries regulares", "Reality shows", "Programas contínuos"};
+		
+		combo = new JComboBox(comboTipos);
 		combo.setBounds(55,45,100,30);
-
-		combo.addItem("-- Escolha o gênero --");
-		combo.addItem("Comédia");
-		combo.addItem("Drama");
-		combo.addItem("Ficção");
-		combo.addItem("Romance");
+		
+		String[] comboGeneros = {"Escolha um gênero", "Comédia", "Drama", "Ficção", "Romance"};
+		
+		combo = new JComboBox(comboGeneros);
 		combo.setBounds(55,55,100,30);
 
-		combo.addItem("-- Escolha o estilo --");
-		combo.addItem("Live Action");
-		combo.addItem("Animada");
+		String[] comboEstilo = {"Escolha um estilo", "Live action", "Animada"};
+		
+		combo = new JComboBox(comboEstilo);
 		combo.setBounds(55,65,100,30);
 
-		combo.addItem("-- Status do programa --");
-		combo.addItem("Em exibição");
-		combo.addItem("Hiato");
-		combo.addItem("Finalizado");
-		combo.addItem("Cancelado");
+		String[] comboStatus = {"Status do programa", "Em exibição", "Hiato", "Finalizado", "Cancelada"};
+		
+		combo = new JComboBox(comboStatus);
 		combo.setBounds(55,75,100,30);
 
 		add(combo);
@@ -110,8 +112,13 @@ public class JanelaCadastroPrograma extends JanelaPadrao{
 		public void actionPerformed(ActionEvent ouvinte) {
 			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 		}
+		// TODO: falta corrigir isso
+	central.adicionarProgramaDeTv();
 	}
-
+	
+	// TODO: falta corrigir isso
+    pe.salvarCentral(central);
+	
 	public static void main(String[] args) {
 		JanelaCadastroPrograma janela = new JanelaCadastroPrograma();
 	}
