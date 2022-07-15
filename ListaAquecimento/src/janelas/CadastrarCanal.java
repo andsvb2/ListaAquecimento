@@ -50,30 +50,37 @@ public class CadastrarCanal extends JanelaPadrao {
 		JLabel numeroDoCanal = new JLabel("Número:");
 		numeroDoCanal.setBounds(5, 70, 55, 30);
 		numeroDoCanal.setHorizontalAlignment(JLabel.CENTER);
-		numeroDoCanal.setOpaque(true);
+//		numeroDoCanal.setOpaque(true);
 		add(numeroDoCanal);
+		
+		JLabel tipoCanal = new JLabel("Tipo:");
+		tipoCanal.setBounds(190, 70, 55, 30);
+		tipoCanal.setHorizontalAlignment(JLabel.CENTER);
+		add(tipoCanal);
+		
 	}
 
 	private void adicionarTextFields() {
 		JTextField campoNome = new JTextField();
-		campoNome.setBounds(65, 35, 540, 30);
+		campoNome.setBounds(65, 35, 520, 30);
 		add(campoNome);
 		
 		try {
 			MaskFormatter mascara = new MaskFormatter("####");
 			tfNumero = new JFormattedTextField(mascara);
 			tfNumero.setHorizontalAlignment(JFormattedTextField.CENTER);
-			tfNumero.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+			tfNumero.setBounds(65, 70, 120, 30);
+			add(tfNumero);
 		} catch (Exception e) {}
 	}
 	
 	private void adicionarBotoes() {
-		JButton botaoCadastrar = new JButton("Cadastrar canal");
-		botaoCadastrar.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		JButton botaoCadastrar = new JButton("Cadastrar");
+		botaoCadastrar.setBounds(465, 505, 130, 30);
 		add(botaoCadastrar);
 		
-		JButton botaoEditar = new JButton("Edtiar canal");
-		botaoEditar.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		JButton botaoEditar = new JButton("Editar");
+		botaoEditar.setBounds(330, 505, 130, 30);
 		add(botaoEditar);
 	}
 	
@@ -82,7 +89,7 @@ public class CadastrarCanal extends JanelaPadrao {
 				"Assinatura individual de televisão", "Assinatura individual de broadcasting"};
 		
 		combo = new JComboBox(tipos);
-		combo.setBounds(getBounds());
+		combo.setBounds(250, 70, 345, 30);
 		add(combo);
 	}
 	
