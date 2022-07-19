@@ -3,11 +3,11 @@ package executaveis;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 
+import enums.TipoDePrograma;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;
 import programas.ProgramaDeTv;
-import programas.TipoDePrograma;
 
 public class MainTestePersistencia {
 

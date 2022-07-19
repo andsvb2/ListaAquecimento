@@ -1,6 +1,9 @@
 package programas;
 
 import java.util.ArrayList;
+
+import enums.TipoDePrograma;
+
 import java.time.DayOfWeek;
 
 import midia.Canal;

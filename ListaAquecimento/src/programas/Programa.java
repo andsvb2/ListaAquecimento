@@ -1,5 +1,7 @@
 package programas;
 
+import enums.TipoDePrograma;
+
 public abstract class Programa {
 
 	private long id;
