@@ -1,12 +1,15 @@
 package midia;
 
+import enums.TipoCanal;
+
 public class Canal {
 
 	private String nomeCanal;
-	private String tipoCanal;
+	private TipoCanal tipoCanal;
+//	private String tipoCanal;
 	
 	
-	public Canal(String n, String t) {
+	public Canal(String n, TipoCanal t) {
 		nomeCanal = n;
 		tipoCanal = t;
 	}
@@ -26,7 +29,7 @@ public class Canal {
 		return nomeCanal;
 	}
 
-	public String getTipoCanal() {
+	public TipoCanal getTipoCanal() {
 		return tipoCanal;
 	}
 	
