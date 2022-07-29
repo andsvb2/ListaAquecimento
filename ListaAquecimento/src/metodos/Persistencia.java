@@ -35,7 +35,7 @@ public final class Persistencia {
 		  xstream.allowTypes( new Class[] {CentralDeInformacoes.class,
 		  Persistencia.class, GeradorDeRelatorios.class, Canal.class,
 		  SerieRegular.class, Usuario.class, java.time.DayOfWeek.class});
-		  xstream.allowTypesByWildcard(new String[]{"metodos.*","enums.*"});
+		  xstream.allowTypesByWildcard(new String[]{"metodos.*","enums.*","programas.*"});
 		 
 	}
 	
