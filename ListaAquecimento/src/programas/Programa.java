@@ -1,6 +1,9 @@
 package programas;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Date;
 
 import enums.StatusPrograma;
 import midia.Canal;
@@ -12,15 +15,26 @@ public abstract class Programa {
 	private Canal canal;
 	private LocalTime horario;
 	private StatusPrograma status;
+	private ArrayList<DayOfWeek> diasExibicao;
+	private Date dataRetorno;
 	
-	public Programa(String n, Canal c, LocalTime h, StatusPrograma s) {
+	public Programa(String n, Canal c, LocalTime h, StatusPrograma s, ArrayList<DayOfWeek> d) {
 		id = System.currentTimeMillis();
 		nome = n;
 		canal = c;
 		horario = h;
 		status = s;
+		diasExibicao = d;
 	}
-	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public Canal getCanal() {
 		return canal;
 	}
@@ -29,28 +43,12 @@ public abstract class Programa {
 		this.canal = canal;
 	}
 
-	public String toString() {
-		return nome;
-	}
-	
-	public long getId() {
-		return id;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String novoNome) {
-		nome = novoNome;
-	}
-	
 	public LocalTime getHorario() {
 		return horario;
 	}
-	
-	public void setHorario(LocalTime novoHorario) {
-		horario = novoHorario;
+
+	public void setHorario(LocalTime horario) {
+		this.horario = horario;
 	}
 
 	public StatusPrograma getStatus() {
@@ -60,5 +58,26 @@ public abstract class Programa {
 	public void setStatus(StatusPrograma status) {
 		this.status = status;
 	}
+
+	public ArrayList<DayOfWeek> getDiasExibicao() {
+		return diasExibicao;
+	}
+
+	public void setDiasExibicao(ArrayList<DayOfWeek> diasExibicao) {
+		this.diasExibicao = diasExibicao;
+	}
+
+	public Date getDataRetorno() {
+		return dataRetorno;
+	}
+
+	public void setDataRetorno(Date dataRetorno) {
+		this.dataRetorno = dataRetorno;
+	}
+
+	public long getId() {
+		return id;
+	}
 	
+
 }
