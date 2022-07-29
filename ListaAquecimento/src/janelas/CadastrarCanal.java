@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -12,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import enums.TipoCanal;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 
@@ -19,6 +21,7 @@ public class CadastrarCanal extends JanelaPadrao {
 	
 	private JComboBox<String> combo;
 	private JFormattedTextField tfNumero;
+	private JFormattedTextField tfLink;
 	private Persistencia pe = Persistencia.getInstancia();
 	private CentralDeInformacoes central = pe.recuperarCentral();
 
@@ -32,6 +35,10 @@ public class CadastrarCanal extends JanelaPadrao {
 		setVisible(true);
 	}
 
+	public JFormattedTextField getTfNumero() {
+		return tfNumero;
+	}
+	
 	private void adicionarTitulo() {
 		JLabel titulo = new JLabel("CADASTRO DE CANAL", JLabel.CENTER);
 		titulo.setBounds(0, 0, 600, 30);
@@ -85,10 +92,7 @@ public class CadastrarCanal extends JanelaPadrao {
 	}
 	
 	private void adicionarCombo() {
-		String tipos[] = {"Canal aberto", "Broadcasting aberto", "Pacote de assinatura",
-				"Assinatura individual de televisão", "Assinatura individual de broadcasting"};
-		
-		combo = new JComboBox(tipos);
+		combo = new JComboBox(TipoCanal.values());
 		combo.setBounds(250, 70, 345, 30);
 		add(combo);
 	}
