@@ -13,12 +13,12 @@ import javax.swing.JTextField;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 
-public class JanelaCadastroPrograma extends JanelaPadrao{
+public class CadastroPrograma extends JanelaPadrao{
 
 	private Persistencia pe = Persistencia.getInstancia();
 	private CentralDeInformacoes central = pe.recuperarCentral();
 
-	public JanelaCadastroPrograma() {
+	public CadastroPrograma() {
 		super("Cadastro");
 		adicionarTitulo();
 		adicionarLabels();

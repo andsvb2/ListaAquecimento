@@ -113,9 +113,9 @@ private void adicionarMenu() {
 				}
 				break;
 			case "Cadastrar programa":
-				if (!(janela instanceof JanelaCadastroPrograma)) {
+				if (!(janela instanceof CadastroPrograma)) {
 					dispose();
-					new JanelaCadastroPrograma();
+					new CadastroPrograma();
 				}
 				break;
 			case "Listar todos os canais":
