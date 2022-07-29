@@ -67,7 +67,7 @@ public class MainAgenda {
 							ArrayList<>(Arrays.asList(dias));
 
 					SerieRegular programa = new SerieRegular(nomeCanal, null, null, canal);
-					if (central.adicionarProgramaDeTv(programa)) {
+					if (central.adicionarPrograma(programa)) {
 						System.out.println("Programa cadastrado com sucesso!");
 						pe.salvarCentral(central);
 					} else {

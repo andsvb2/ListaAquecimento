@@ -2,31 +2,31 @@ package metodos;
 import java.util.ArrayList;
 
 import midia.Canal;
-import programas.SerieRegular;
+import programas.Programa;
 
 public final class CentralDeInformacoes {
 	
-	private ArrayList<SerieRegular> todosOsProgramas = new ArrayList<>();
+	private ArrayList<Programa> todosOsProgramas = new ArrayList<>();
 	private ArrayList<Canal> listaCanais = new ArrayList<>();
 	
-	public boolean adicionarProgramaDeTv(SerieRegular programa) {
-		if (recuperarProgramaDeTvPeloId(programa) == null) {
+	public boolean adicionarPrograma(Programa programa) {
+		if (recuperarProgramaPeloId(programa) == null) {
 			todosOsProgramas.add(programa);
 			return true;
 		}
 		return false;
 	}
 
-	public ArrayList<SerieRegular> getTodosOsProgramas() {
+	public ArrayList<Programa> getTodosOsProgramas() {
 		return todosOsProgramas;
 	}
 
-	public void setTodosOsProgramas(ArrayList<SerieRegular> todosOsProgramas) {
+	public void setTodosOsProgramas(ArrayList<Programa> todosOsProgramas) {
 		this.todosOsProgramas = todosOsProgramas;
 	}
 
-	public SerieRegular recuperarProgramaDeTvPeloId(SerieRegular id) {
-		for (SerieRegular p : todosOsProgramas) {
+	public Programa recuperarProgramaPeloId(Programa id) {
+		for (Programa p : todosOsProgramas) {
 			if (p.getId() == id.getId()) {
 				return p;
 			}
