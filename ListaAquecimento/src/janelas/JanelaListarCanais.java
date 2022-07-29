@@ -6,6 +6,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import metodos.CentralDeInformacoes;
+import metodos.Persistencia;
 import midia.Canal;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ import midia.Canal;
 
 public class JanelaListarCanais extends JanelaPadrao{
 	
+	private Persistencia pe = Persistencia.getInstancia();
+	private CentralDeInformacoes central = pe.recuperarCentral();
 	private CadastrarCanal janela;
 	
 	public JanelaListarCanais(){
@@ -35,11 +39,11 @@ public class JanelaListarCanais extends JanelaPadrao{
 		
 		Canal canal = new Canal();
 		
-		ArrayList<Canal> todosOsCanais = canal.getListaCanais();
+		ArrayList<Canal> todosOsCanais = central.getListaCanais();
 		Object[] linhas = new Object[todosOsCanais.size()];
 		
 		for(Canal c : todosOsCanais){
-			Object[] linha = new object[3];
+			Object[] linha = new Object[3];
 			
 			linha[0] = c.getNomeCanal();
 			linha[1] = janela.getTfNumero.getText();
