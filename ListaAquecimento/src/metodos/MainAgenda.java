@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import midia.Canal;
-import programas.ProgramaDeTv;
+import programas.SerieRegular;
 
 public class MainAgenda {
 
@@ -66,7 +66,7 @@ public class MainAgenda {
 					ArrayList<String> diasDaSemana = new
 							ArrayList<>(Arrays.asList(dias));
 
-					ProgramaDeTv programa = new ProgramaDeTv(nomeCanal, null, null, canal);
+					SerieRegular programa = new SerieRegular(nomeCanal, null, null, canal);
 					if (central.adicionarProgramaDeTv(programa)) {
 						System.out.println("Programa cadastrado com sucesso!");
 						pe.salvarCentral(central);

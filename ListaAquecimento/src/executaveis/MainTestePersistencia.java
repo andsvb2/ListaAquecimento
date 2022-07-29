@@ -7,7 +7,7 @@ import enums.TipoDePrograma;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;
-import programas.ProgramaDeTv;
+import programas.SerieRegular;
 
 public class MainTestePersistencia {
 
@@ -27,7 +27,7 @@ public class MainTestePersistencia {
 		diasExibicao.add(DayOfWeek.FRIDAY);
 		diasExibicao.add(DayOfWeek.SATURDAY);
 
-		ProgramaDeTv pdtv = new ProgramaDeTv("Jornal da Noite", TipoDePrograma.PC, diasExibicao, c);
+		SerieRegular pdtv = new SerieRegular("Jornal da Noite", TipoDePrograma.PC, diasExibicao, c);
 		
 		
 		central.adicionarCanal(c);

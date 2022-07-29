@@ -13,7 +13,7 @@ import com.thoughtworks.xstream.security.NullPermission;
 import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 
 import midia.Canal;
-import programas.ProgramaDeTv;
+import programas.SerieRegular;
 import users.Usuario;
 
 public final class Persistencia {
@@ -34,7 +34,7 @@ public final class Persistencia {
 		  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive
 		  xstream.allowTypes( new Class[] {CentralDeInformacoes.class,
 		  Persistencia.class, GeradorDeRelatorios.class, Canal.class,
-		  ProgramaDeTv.class, Usuario.class, java.time.DayOfWeek.class});
+		  SerieRegular.class, Usuario.class, java.time.DayOfWeek.class});
 		  xstream.allowTypesByWildcard(new String[]{"metodos.*","enums.*"});
 		 
 	}
