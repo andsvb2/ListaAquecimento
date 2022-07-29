@@ -1,19 +1,34 @@
 package programas;
 
-import enums.TipoDePrograma;
+import java.time.LocalTime;
+
+import enums.StatusPrograma;
+import midia.Canal;
 
 public abstract class Programa {
 
 	private long id;
 	private String nome;
-	private TipoDePrograma tipo;
+	private Canal canal;
+	private LocalTime horario;
+	private StatusPrograma status;
 	
-	public Programa(String n, TipoDePrograma t) {
+	public Programa(String n, Canal c, LocalTime h, StatusPrograma s) {
 		id = System.currentTimeMillis();
 		nome = n;
-		tipo = t;
+		canal = c;
+		horario = h;
+		status = s;
 	}
 	
+	public Canal getCanal() {
+		return canal;
+	}
+
+	public void setCanal(Canal canal) {
+		this.canal = canal;
+	}
+
 	public String toString() {
 		return nome;
 	}
@@ -30,12 +45,20 @@ public abstract class Programa {
 		nome = novoNome;
 	}
 	
-	public TipoDePrograma getTipo() {
-		return tipo;
+	public LocalTime getHorario() {
+		return horario;
 	}
 	
-	public void setTipo(TipoDePrograma novoTipo) {
-		tipo = novoTipo;
+	public void setHorario(LocalTime novoHorario) {
+		horario = novoHorario;
+	}
+
+	public StatusPrograma getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusPrograma status) {
+		this.status = status;
 	}
 	
 }
