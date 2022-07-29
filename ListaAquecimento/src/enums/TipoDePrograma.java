@@ -6,7 +6,6 @@ public enum TipoDePrograma {
 	RS("Reality show"),
 	PC("Programa contínuo");
 	
-	private static final TipoDePrograma[] ENUMS = TipoDePrograma.values();
 	private final String tipo;
 	
 	TipoDePrograma(String novoTipo){
@@ -17,7 +16,9 @@ public enum TipoDePrograma {
 		return tipo;
 	}
 	
-	public static TipoDePrograma of(int tipo) {
-        return ENUMS[tipo - 1];
+	@Override
+	public String toString() {
+		return this.tipo;
 	}
+	
 }
