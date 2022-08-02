@@ -35,7 +35,7 @@ public final class Persistencia {
 		  xstream.allowTypes( new Class[] {CentralDeInformacoes.class,
 		  Persistencia.class, GeradorDeRelatorios.class, Canal.class,
 		  SerieRegular.class, Usuario.class, java.time.DayOfWeek.class});
-		  xstream.allowTypesByWildcard(new String[]{"metodos.*","enums.*","programas.*"});
+		  xstream.allowTypesByWildcard(new String[]{"metodos.*","enums.*","programas.*","midia.*"});
 		 
 	}
 	
@@ -69,29 +69,15 @@ public final class Persistencia {
 		}
 		return new CentralDeInformacoes();
 	}
-
-	public void salvarUsuario(Usuario u) {
-		xml += xstream.toXML(u);
-		try {
-			PrintWriter gravar = new PrintWriter(usuarioPadrao);
-			usuarioPadrao.createNewFile();
-			gravar.print(xml);
-			gravar.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public Usuario recuperarUsuario() {
-		try {
-			if (usuarioPadrao.exists()) {
-				FileInputStream fis = new FileInputStream(usuarioPadrao);
-				return (Usuario) xstream.fromXML(fis);
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return new Usuario();
-	}
-
+	/*
+	 * public void salvarUsuario(Usuario u) { xml += xstream.toXML(u); try {
+	 * PrintWriter gravar = new PrintWriter(usuarioPadrao);
+	 * usuarioPadrao.createNewFile(); gravar.print(xml); gravar.close(); } catch
+	 * (IOException e) { e.printStackTrace(); } }
+	 * 
+	 * public Usuario recuperarUsuario() { try { if (usuarioPadrao.exists()) {
+	 * FileInputStream fis = new FileInputStream(usuarioPadrao); return (Usuario)
+	 * xstream.fromXML(fis); } } catch (FileNotFoundException e) {
+	 * e.printStackTrace(); } return new Usuario(); }
+	 */
 }
