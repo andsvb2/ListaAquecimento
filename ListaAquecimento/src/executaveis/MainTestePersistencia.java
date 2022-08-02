@@ -10,6 +10,7 @@ import enums.TipoCanal;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;
+import midia.CanalTv;
 import programas.SerieRegular;
 
 public class MainTestePersistencia {
@@ -19,7 +20,7 @@ public class MainTestePersistencia {
 		Persistencia pe = Persistencia.getInstancia();
 		CentralDeInformacoes central = pe.recuperarCentral();
 		
-		Canal c = new Canal("SBT", TipoCanal.ABERTO);
+		Canal c = new CanalTv("SBT", TipoCanal.ABERTO, 540);
 		
 		ArrayList<DayOfWeek> diasExibicao = new ArrayList<>();
 		

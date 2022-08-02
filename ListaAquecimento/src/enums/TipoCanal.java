@@ -21,4 +21,5 @@ public enum TipoCanal {
 	public String toString() {
 		return this.tipo;
 	}
+	
 }
