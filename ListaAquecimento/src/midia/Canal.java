@@ -2,11 +2,10 @@ package midia;
 
 import enums.TipoCanal;
 
-public class Canal {
+public abstract class Canal {
 
-	private String nomeCanal;
-	private TipoCanal tipoCanal;
-//	private String tipoCanal;
+	protected String nomeCanal;
+	protected TipoCanal tipoCanal;
 	
 	
 	public Canal(String n, TipoCanal t) {
