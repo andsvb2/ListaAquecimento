@@ -24,7 +24,8 @@ public final class CentralDeInformacoes {
 	
 	private ArrayList<Programa> todosOsProgramas = new ArrayList<>();
 	private ArrayList<Canal> listaCanais = new ArrayList<>();
-	private ArrayList<Usuario> usuario = new ArrayList<>();
+	private Usuario usuario = new Usuario();
+//	private ArrayList<Usuario> usuario = new ArrayList<>();
 	
 	
 	/*
@@ -99,17 +100,18 @@ public final class CentralDeInformacoes {
 	 */
 	
 	public void adicionarUsuario(Usuario u) {
-		if (usuario.isEmpty()) {
-			usuario.add(u);
-		}
+		usuario = u;
 	}
 	
 	public Usuario recuperarUsuario() {
-		return usuario.get(0);
+		if(usuario.getEmail() == null && usuario.getSenha() == null)
+			return null;
+		
+		return usuario;
 	}
 	
 	public void removerUsuario() {
-		usuario.remove(0);
+		usuario = null;
 	}
 	
 }
