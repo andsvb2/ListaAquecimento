@@ -2,6 +2,7 @@ package janelas;
 
 import javax.swing.JFrame;
 
+import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import users.Usuario;
 
@@ -11,13 +12,16 @@ public class MainJanelas {
 		
 		JFrame janela;
 		Persistencia pe = Persistencia.getInstancia();
-		Usuario usuario = pe.recuperarUsuario();
+		CentralDeInformacoes central = pe.recuperarCentral();
+		Usuario u = central.recuperarUsuario();
 		
-		if (usuario.getEmail() == null && usuario.getSenha() == null) {
+		if (u == null) {
 			janela = new CadastrarUsuario();
 		} else {
 			janela = new LogarUsuario();
 		}
-		
+
+//		janela = new CadastrarCanal();
+		// a linha acima é usada para testes
 	}
 }

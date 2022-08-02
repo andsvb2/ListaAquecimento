@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import excecoes.LoginInvalidoException;
 import excecoes.SenhaInvalidaException;
+import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import users.Usuario;
 
@@ -118,8 +119,9 @@ public class LogarUsuario extends LoginPadrao {
 			boolean deuCerto;
 			
 			Persistencia pe = Persistencia.getInstancia();
+			CentralDeInformacoes central = pe.recuperarCentral();
 			Usuario temp = new Usuario(email, senha);
-			Usuario existente = pe.recuperarUsuario();
+			Usuario existente = central.recuperarUsuario();
 
 			try {
 				this.verificarUsuario(temp, existente);

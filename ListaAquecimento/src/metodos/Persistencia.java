@@ -21,7 +21,6 @@ public final class Persistencia {
 	private static Persistencia instancia;
 	private XStream xstream = new XStream(new DomDriver("UTF-8"));
 	private File centralPadrao = new File("central.xml");
-	private File usuarioPadrao = new File("usuario.xml");
 	private String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
 	private Persistencia() {
@@ -69,15 +68,5 @@ public final class Persistencia {
 		}
 		return new CentralDeInformacoes();
 	}
-	/*
-	 * public void salvarUsuario(Usuario u) { xml += xstream.toXML(u); try {
-	 * PrintWriter gravar = new PrintWriter(usuarioPadrao);
-	 * usuarioPadrao.createNewFile(); gravar.print(xml); gravar.close(); } catch
-	 * (IOException e) { e.printStackTrace(); } }
-	 * 
-	 * public Usuario recuperarUsuario() { try { if (usuarioPadrao.exists()) {
-	 * FileInputStream fis = new FileInputStream(usuarioPadrao); return (Usuario)
-	 * xstream.fromXML(fis); } } catch (FileNotFoundException e) {
-	 * e.printStackTrace(); } return new Usuario(); }
-	 */
+	
 }

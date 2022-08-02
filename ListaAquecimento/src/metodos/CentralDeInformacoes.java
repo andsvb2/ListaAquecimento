@@ -24,7 +24,7 @@ public final class CentralDeInformacoes {
 	
 	private ArrayList<Programa> todosOsProgramas = new ArrayList<>();
 	private ArrayList<Canal> listaCanais = new ArrayList<>();
-	private Usuario[] usuario = new Usuario[1];
+	private ArrayList<Usuario> usuario = new ArrayList<>();
 	
 	
 	/*
@@ -99,16 +99,17 @@ public final class CentralDeInformacoes {
 	 */
 	
 	public void adicionarUsuario(Usuario u) {
-		if ((usuario.length == 0) && (!u.equals(usuario[0]))) {
-			usuario[0] = u;
+		if (usuario.isEmpty()) {
+			usuario.add(u);
 		}
 	}
 	
-	public Usuario recuperarUsuario(Usuario u) {
-		if(usuario.length != 0)
-			return usuario[0];
-		
-		return null;
+	public Usuario recuperarUsuario() {
+		return usuario.get(0);
+	}
+	
+	public void removerUsuario() {
+		usuario.remove(0);
 	}
 	
 }

@@ -12,6 +12,7 @@ import metodos.Persistencia;
 import midia.Canal;
 import midia.CanalTv;
 import programas.SerieRegular;
+import users.Usuario;
 
 public class MainTestePersistencia {
 
@@ -19,6 +20,9 @@ public class MainTestePersistencia {
 		
 		Persistencia pe = Persistencia.getInstancia();
 		CentralDeInformacoes central = pe.recuperarCentral();
+		
+		Usuario u = new Usuario("teste@gmail.com", "teste123");
+		central.adicionarUsuario(u);
 		
 		Canal c = new CanalTv("SBT", TipoCanal.ABERTO, 540);
 		

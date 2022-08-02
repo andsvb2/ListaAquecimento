@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import metodos.ValidadorEmail;
 import users.Usuario;
@@ -97,11 +98,11 @@ public class CadastrarUsuario extends LoginPadrao {
 			boolean deuCerto = false;
 			
 			if (ValidadorEmail.isValidEmailAddress(email)) {
-				Usuario u = new Usuario();
-				u.setEmail(email);
-				u.setSenha(senha);
+				Usuario u = new Usuario(email, senha);
 				Persistencia pe = Persistencia.getInstancia();
-				pe.salvarUsuario(u);
+				CentralDeInformacoes central = pe.recuperarCentral();
+				central.adicionarUsuario(u);
+				pe.salvarCentral(central);
 				deuCerto = true;
 			}
 			
