@@ -32,5 +32,7 @@ public abstract class Canal {
 		return tipoCanal;
 	}
 	
+	public abstract Object numeroOuLink();
+	
 	
 }

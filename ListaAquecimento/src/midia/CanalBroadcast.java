@@ -23,4 +23,7 @@ public class CanalBroadcast extends Canal{
 		this.link = link;
 	}
 	
+	public Object numeroOuLink() {
+		return link;
+	}
 }

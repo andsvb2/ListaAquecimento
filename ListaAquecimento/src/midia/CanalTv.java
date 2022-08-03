@@ -22,4 +22,9 @@ public class CanalTv extends Canal{
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+
+	@Override
+	public Object numeroOuLink() {
+		return numero;
+	}
 }
