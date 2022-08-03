@@ -16,18 +16,15 @@ import midia.Canal;
 import programas.SerieRegular;
 import users.Usuario;
 
-public final class Persistencia {
+public class Persistencia {
 
-	private static Persistencia instancia;
 	private XStream xstream = new XStream(new DomDriver("UTF-8"));
 	private File centralPadrao = new File("central.xml");
 	private String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-
-	private Persistencia() {
-
+    
+    public Persistencia() {
 //		xstream.addPermission(AnyTypePermission.ANY);
 
-		
 		  xstream.addPermission(NoTypePermission.NONE); //forbid everything
 		  xstream.addPermission(NullPermission.NULL); // allow "null"
 		  xstream.addPermission(PrimitiveTypePermission.PRIMITIVES); // allow primitive
@@ -38,24 +35,40 @@ public final class Persistencia {
 		 
 	}
 	
-	public static Persistencia getInstancia() {
-		if (instancia == null) {
-			instancia = new Persistencia();
-		}
-		return instancia;
-	}
-
-	public void salvarCentral(CentralDeInformacoes central) {
-		xml += xstream.toXML(central);
+	/*
+	 * public void salvarSalao(Object sla, String nomeArquivo) throws Exception {
+	 * 
+	 * File arquivo = new File(nomeArquivo); arquivo.createNewFile(); PrintWriter pW
+	 * = new PrintWriter(arquivo); String xml =
+	 * "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"; xml += xStream.toXML(sla);
+	 * pW.print(xml); pW.close(); }
+	 */
+    
+    public void salvarCentral(CentralDeInformacoes central) {
 		try {
-			PrintWriter gravar = new PrintWriter(centralPadrao);
 			centralPadrao.createNewFile();
+			PrintWriter gravar = new PrintWriter(centralPadrao);
+			xml += xstream.toXML(central);
 			gravar.print(xml);
 			gravar.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+    
+	/*
+	 * public Object recuperarSalao(String nomeArquivo)throws Exception{
+	 * 
+	 * File arquivo = new File(nomeArquivo); if (arquivo.exists()){ FileInputStream
+	 * fIS = new FileInputStream(arquivo); return (Object) xStream.fromXML(fIS);
+	 * 
+	 * } else { throw new Exception(); } }
+	 */
+
+
+
+    
+	
 
 	public CentralDeInformacoes recuperarCentral() {
 		try {
