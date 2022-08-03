@@ -193,7 +193,8 @@ public class CadastrarCanal extends JanelaPadrao {
 			
 			
 			
-			Persistencia pe = Persistencia.getInstancia();
+//			Persistencia pe = Persistencia.getInstancia();
+			Persistencia pe = new Persistencia();
 			CentralDeInformacoes central = pe.recuperarCentral();
 			deuCerto = central.adicionarCanal(c);
 			pe.salvarCentral(central);

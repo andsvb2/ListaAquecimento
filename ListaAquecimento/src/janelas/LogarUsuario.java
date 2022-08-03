@@ -118,7 +118,8 @@ public class LogarUsuario extends LoginPadrao {
 
 			boolean deuCerto;
 			
-			Persistencia pe = Persistencia.getInstancia();
+//			Persistencia pe = Persistencia.getInstancia();
+			Persistencia pe = new Persistencia();
 			CentralDeInformacoes central = pe.recuperarCentral();
 			Usuario temp = new Usuario(email, senha);
 			Usuario existente = central.recuperarUsuario();

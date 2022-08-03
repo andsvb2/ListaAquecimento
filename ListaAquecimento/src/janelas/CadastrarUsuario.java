@@ -99,7 +99,8 @@ public class CadastrarUsuario extends LoginPadrao {
 			
 			if (ValidadorEmail.isValidEmailAddress(email)) {
 				Usuario u = new Usuario(email, senha);
-				Persistencia pe = Persistencia.getInstancia();
+//				Persistencia pe = Persistencia.getInstancia();
+				Persistencia pe = new Persistencia();
 				CentralDeInformacoes central = pe.recuperarCentral();
 				central.adicionarUsuario(u);
 				pe.salvarCentral(central);
