@@ -37,8 +37,6 @@ public class JanelaListarCanais extends JanelaPadrao{
 		modelo.addColumn("Número");
 		modelo.addColumn("Tipo do canal");
 		
-		Canal canal = new Canal();
-		
 		ArrayList<Canal> todosOsCanais = central.getListaCanais();
 		Object[] linhas = new Object[todosOsCanais.size()];
 		
@@ -46,18 +44,23 @@ public class JanelaListarCanais extends JanelaPadrao{
 			Object[] linha = new Object[3];
 			
 			linha[0] = c.getNomeCanal();
-			linha[1] = janela.getTfNumero.getText();
+			linha[1] = janela.getTfNumero().getText();
 			linha[2] = c.getTipoCanal();
 			
 			modelo.addRow(linha);
 			
-			JTable tabela = new JTable(modelo);
-			JScrollPane painelTabela = new JScrollPane(tabela);
-			
-			painelTabela.setBounds();
-			
-			add(painelTabela);
 		}
+		
+		JTable tabela = new JTable(modelo);
+		JScrollPane painelTabela = new JScrollPane(tabela);
+		
+		painelTabela.setBounds(40,90,340,190);
+		
+		add(painelTabela);
+	}
+	
+	public static void main(String[] args) {
+		JanelaListarCanais listarCanais = new JanelaListarCanais();
 	}
 }
 
