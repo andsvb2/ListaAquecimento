@@ -18,13 +18,13 @@ import javax.swing.table.DefaultTableModel;
 
 import midia.Canal;
 
-public class JanelaListarCanais extends JanelaPadrao{
+public class ListarCanais extends JanelaPadrao{
 	
 	private Persistencia pe = new Persistencia();
 	private CentralDeInformacoes central = pe.recuperarCentral();
-	private CadastrarCanal janela;
+	private JanelaPadrao janela;
 	
-	public JanelaListarCanais(){
+	public ListarCanais(){
 		super("Lista de canais");
 		adicionarTabela();
 		setVisible(true);
@@ -34,7 +34,7 @@ public class JanelaListarCanais extends JanelaPadrao{
 		DefaultTableModel modelo = new DefaultTableModel();
 		
 		modelo.addColumn("Nome do canal");
-		modelo.addColumn("Número");
+		modelo.addColumn("Número / Link");
 		modelo.addColumn("Tipo do canal");
 		
 		ArrayList<Canal> todosOsCanais = central.getListaCanais();
@@ -44,7 +44,7 @@ public class JanelaListarCanais extends JanelaPadrao{
 			Object[] linha = new Object[3];
 			
 			linha[0] = c.getNomeCanal();
-			linha[1] = janela.getTfNumero().getText();
+			linha[1] = c.numeroOuLink();
 			linha[2] = c.getTipoCanal();
 			
 			modelo.addRow(linha);
@@ -57,10 +57,6 @@ public class JanelaListarCanais extends JanelaPadrao{
 		painelTabela.setBounds(40,90,340,190);
 		
 		add(painelTabela);
-	}
-	
-	public static void main(String[] args) {
-		JanelaListarCanais listarCanais = new JanelaListarCanais();
 	}
 }
 

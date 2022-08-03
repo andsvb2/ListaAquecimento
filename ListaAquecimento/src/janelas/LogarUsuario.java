@@ -126,7 +126,7 @@ public class LogarUsuario extends LoginPadrao {
 			try {
 				this.verificarUsuario(temp, existente);
 				dispose();
-				new CadastrarCanal();
+				new ListarCanais();
 			} catch (LoginInvalidoException lie) {
 				JOptionPane.showMessageDialog(null, lie.getMessage());
 			} catch (SenhaInvalidaException sie) {

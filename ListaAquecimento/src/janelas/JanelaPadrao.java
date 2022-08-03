@@ -119,9 +119,9 @@ private void adicionarMenu() {
 				}
 				break;
 			case "Listar todos os canais":
-				if (!(janela instanceof ListaCanais)) {
+				if (!(janela instanceof ListarCanais)) {
 					dispose();
-					new ListaCanais();
+					new ListarCanais();
 				}
 				break;
 			case "Listar todos os programas":
