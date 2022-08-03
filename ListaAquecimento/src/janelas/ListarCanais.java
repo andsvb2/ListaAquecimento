@@ -20,7 +20,7 @@ import midia.Canal;
 
 public class JanelaListarCanais extends JanelaPadrao{
 	
-	private Persistencia pe = Persistencia.getInstancia();
+	private Persistencia pe = new Persistencia();
 	private CentralDeInformacoes central = pe.recuperarCentral();
 	private CadastrarCanal janela;
 	

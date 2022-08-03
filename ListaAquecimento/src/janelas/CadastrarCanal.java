@@ -28,8 +28,6 @@ public class CadastrarCanal extends JanelaPadrao {
 	private JComboBox<TipoCanal> cbTipoCanal;
 	private JFormattedTextField tfNumero;
 	private JFormattedTextField tfLink;
-//	private Persistencia pe = Persistencia.getInstancia();
-//	private CentralDeInformacoes central = pe.recuperarCentral();
 
 	public CadastrarCanal() {
 		super("Cadastro de canal");
@@ -191,9 +189,7 @@ public class CadastrarCanal extends JanelaPadrao {
 		
 			boolean deuCerto = false;
 			
-			
-			
-			Persistencia pe = Persistencia.getInstancia();
+			Persistencia pe = new Persistencia();
 			CentralDeInformacoes central = pe.recuperarCentral();
 			deuCerto = central.adicionarCanal(c);
 			pe.salvarCentral(central);

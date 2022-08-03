@@ -11,7 +11,7 @@ public class MainJanelas {
 	public static void main(String[] args) {
 		
 		JFrame janela;
-		Persistencia pe = Persistencia.getInstancia();
+		Persistencia pe = new Persistencia();
 		CentralDeInformacoes central = pe.recuperarCentral();
 				
 		if (central.recuperarUsuario() == null) {
