@@ -1,4 +1,4 @@
-package janelas;
+package janelas.canal;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import janelas.JanelaPadrao;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;

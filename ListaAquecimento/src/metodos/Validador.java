@@ -8,7 +8,7 @@ package metodos;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-public abstract class ValidadorEmail {
+public abstract class Validador {
 	
 	public static boolean isValidEmailAddress(String email) {
 		boolean result = true;

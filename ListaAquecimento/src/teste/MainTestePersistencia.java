@@ -1,4 +1,4 @@
-package executaveis;
+package teste;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;
@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import enums.EstiloSerieRegular;
 import enums.StatusPrograma;
 import enums.TipoCanal;
+import enums.TipoPrograma;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;
 import midia.CanalTv;
-import programas.SerieRegular;
+import programas.ProgramaContinuo;
 import users.Usuario;
 
 public class MainTestePersistencia {
 
 	public static void main(String[] args) {
 		
-		Persistencia pe = Persistencia.getInstancia();
+		Persistencia pe = new Persistencia();
 		CentralDeInformacoes central = pe.recuperarCentral();
 		
 		Usuario u = new Usuario("teste@gmail.com", "teste123");
@@ -40,9 +41,13 @@ public class MainTestePersistencia {
 		int temporadas = 5;
 		EstiloSerieRegular estilo = EstiloSerieRegular.LA;
 		String genero = "Jornal";
+		TipoPrograma tipoP = TipoPrograma.PC;
+		ArrayList<String> apresentadores = new ArrayList<>();
+		apresentadores.add("Fulana");
+		apresentadores.add("Ciclano");
 
-		SerieRegular jornal = new SerieRegular("Jornal da Noite", c, hora, 
-				status, diasExibicao, temporadas, estilo, genero);
+		ProgramaContinuo jornal = new ProgramaContinuo("Jornal da Noite", c, hora, 
+				status, diasExibicao, tipoP, apresentadores);
 		
 		
 		central.adicionarCanal(c);

@@ -1,4 +1,4 @@
-package janelas;
+package janelas.programa;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -10,13 +10,14 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import janelas.JanelaPadrao;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 
 
 public class JanelaTiposDeProgramas extends JanelaPadrao{
 
-	private Persistencia pe = Persistencia.getInstancia();
+	private Persistencia pe = new Persistencia();
 	private CentralDeInformacoes central = pe.recuperarCentral();
 
 	public JanelaTiposDeProgramas() {
@@ -93,9 +94,6 @@ public class JanelaTiposDeProgramas extends JanelaPadrao{
 			JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 		
 			// TODO: corrigir isso
-			central.adicionarProgramaDeTV();
 		}
 	}
-	// TODO: corrigir isso
-	pe.salvarCentral(central);
 }

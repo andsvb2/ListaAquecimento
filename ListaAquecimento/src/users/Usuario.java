@@ -1,6 +1,8 @@
 package users;
 
-import java.util.Objects;
+import java.util.ArrayList;
+
+import programas.Programa;
 
 public class Usuario {
 	
@@ -8,6 +10,7 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
+	private ArrayList<Programa> programasFavoritos;
 	
 	public Usuario() {
 		id = System.currentTimeMillis();

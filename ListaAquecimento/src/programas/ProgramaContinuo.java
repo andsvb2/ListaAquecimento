@@ -4,8 +4,8 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import enums.EstiloSerieRegular;
 import enums.StatusPrograma;
+import enums.TipoPrograma;
 import midia.Canal;
 
 public class ProgramaContinuo extends Programa {
@@ -14,8 +14,8 @@ public class ProgramaContinuo extends Programa {
 	private ArrayList<String> apresentadores;
 	
 	public ProgramaContinuo(String n, Canal c, LocalTime h, StatusPrograma s, 
-			ArrayList<DayOfWeek> d, ArrayList<String> a) {
-		super(n, c, h, s, d);
+			ArrayList<DayOfWeek> d, TipoPrograma t, ArrayList<String> a) {
+		super(n, c, h, s, d, t);
 		apresentadores = a;
 	}
 

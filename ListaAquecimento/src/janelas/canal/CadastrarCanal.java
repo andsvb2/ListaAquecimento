@@ -1,4 +1,4 @@
-package janelas;
+package janelas.canal;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
 import enums.TipoCanal;
+import janelas.JanelaPadrao;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import midia.Canal;
@@ -204,26 +205,4 @@ public class CadastrarCanal extends JanelaPadrao {
 			}
 		}
 	}
-	
-	private class OuvinteBotaoEditar implements ActionListener{
-		
-
-		@Override
-		public void actionPerformed(ActionEvent clique) {
-			
-			
-			
-			String opcao = (String) cbTipoCanal.getSelectedItem();
-			
-			if(opcao.equals("Canal aberto") 
-					|| opcao.equals("Pacote de assinatura") 
-					|| opcao.equals("Assinatura individual de televisão")) {
-				tfNumero.setEditable(true);
-			} else {
-				dispose();
-				new JanelaDeBroadcasting();
-			}
-		}
-	}
-
 }

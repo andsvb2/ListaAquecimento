@@ -1,4 +1,4 @@
-package janelas;
+package janelas.programa;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import enums.TipoDePrograma;
+import enums.TipoPrograma;
+import janelas.JanelaPadrao;
 import metodos.CentralDeInformacoes;
 import programas.Programa;
 
@@ -46,7 +47,7 @@ public class ListarProgramas extends JanelaPadrao{
 		modelo.addColumn("Tipo de programa");
 		modelo.addColumn("Canal");
 
-		Programa programa = null;
+//		Programa programa = null;
 
 		CentralDeInformacoes central = new CentralDeInformacoes();
 		
@@ -57,13 +58,13 @@ public class ListarProgramas extends JanelaPadrao{
 		for(Programa p : todosOsProgramas){
 			Object[] linha = new Object[3];
 
-			Programa programaTv = null;
+//			Programa programaTv = p;
 
-			TipoDePrograma tipo = null;
+//			TipoPrograma tipo = null;
 			
-			linha[0] = programa.getNome();
-			linha[1] = tipo.getTipo();
-			linha[2] = programaTv.getCanal();
+			linha[0] = p.getNome();
+			linha[1] = p.getTipo();
+			linha[2] = p.getCanal();
 
 			modelo.addRow(linha);
 		}

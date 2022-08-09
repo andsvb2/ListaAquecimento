@@ -9,6 +9,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
+
+import janelas.canal.CadastrarCanal;
+import janelas.canal.ListarCanais;
+import janelas.programa.CadastrarPrograma;
+import janelas.programa.ListarProgramas;
+import janelas.usuario.CadastrarUsuario;
+
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class JanelaPadrao extends JFrame {
@@ -113,9 +120,9 @@ private void adicionarMenu() {
 				}
 				break;
 			case "Cadastrar programa":
-				if (!(janela instanceof CadastroPrograma)) {
+				if (!(janela instanceof CadastrarPrograma)) {
 					dispose();
-					new CadastroPrograma();
+					new CadastrarPrograma();
 				}
 				break;
 			case "Listar todos os canais":
@@ -125,11 +132,10 @@ private void adicionarMenu() {
 				}
 				break;
 			case "Listar todos os programas":
-//				if (!(janela instanceof ListaCanais)) {
-//					dispose();
-//					new ListaCanais();
-//				}
-//				new listarProgramas();
+				if (!(janela instanceof ListarProgramas)) {
+					dispose();
+					new ListarProgramas();
+				}
 				break;
 			case "Gerar programação de séries em PDF":
 				dispose();

@@ -4,8 +4,8 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import enums.EstiloSerieRegular;
 import enums.StatusPrograma;
+import enums.TipoPrograma;
 import midia.Canal;
 
 public class RealityShow extends Programa {
@@ -14,9 +14,9 @@ public class RealityShow extends Programa {
 	private ArrayList<String> apresentadores;
 	
 	public RealityShow(String n, Canal c, LocalTime h, StatusPrograma s, 
-			ArrayList<DayOfWeek> d, int t, ArrayList<String> a) {
-		super(n, c, h, s, d);
-		qtdTemporadas = t;
+			ArrayList<DayOfWeek> d,  TipoPrograma t, int temp, ArrayList<String> a) {
+		super(n, c, h, s, d, t);
+		qtdTemporadas = temp;
 		apresentadores = a;
 	}
 

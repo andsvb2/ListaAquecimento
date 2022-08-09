@@ -1,4 +1,4 @@
-package janelas;
+package janelas.usuario;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,19 +11,22 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import excecoes.LoginInvalidoException;
+import excecoes.SenhaInvalidaException;
+import janelas.LoginPadrao;
+import janelas.canal.ListarCanais;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
-import metodos.ValidadorEmail;
 import users.Usuario;
 
 
-public class CadastrarUsuario extends LoginPadrao {
+public class LogarUsuario extends LoginPadrao {
 	private JTextField campoEmail;
 	private JPasswordField campoSenha;
 	
 
-	public CadastrarUsuario() {
-		super("Cadastro");
+	public LogarUsuario() {
+		super("Login");
 		adicionarTitulo();
 		adicionarLabels();
 		adicionarTextFields();
@@ -41,7 +44,7 @@ public class CadastrarUsuario extends LoginPadrao {
 
 	protected void adicionarTitulo() {
 		ImageIcon icone = new ImageIcon();
-		JLabel titulo = new JLabel("CADASTRO", icone, JLabel.CENTER);
+		JLabel titulo = new JLabel("LOGIN", icone, JLabel.CENTER);
 		titulo.setBounds(0, 0, 600, 30);
 		titulo.setFont(new Font("Fira Sans", Font.BOLD, 15));
 		titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -75,44 +78,63 @@ public class CadastrarUsuario extends LoginPadrao {
 	}
 	
 	protected void adicionarBotao() {
-		JButton botaoCadastro = new JButton("Finalizar cadastro");
-		OuvinteBotaoCadastrar ouvinte = new OuvinteBotaoCadastrar(this);
+		JButton botaoLogin = new JButton("Entrar");
+		OuvinteBotaoLogin ouvinte = new OuvinteBotaoLogin(this);
 		
-		botaoCadastro.setBounds(5, 120, 140, 30);
+		botaoLogin.setBounds(5, 120, 140, 30);
 //		botaoCadastro.setIcon(new ImageIcon());
-		botaoCadastro.addActionListener(ouvinte);
-		add(botaoCadastro);
+		botaoLogin.addActionListener(ouvinte);
+		add(botaoLogin);
 	}
 	
-	private class OuvinteBotaoCadastrar implements ActionListener{
-		private CadastrarUsuario janela;
+	
+	private class OuvinteBotaoLogin implements ActionListener{
+		private LogarUsuario janela;
 		
-		private OuvinteBotaoCadastrar(CadastrarUsuario janela) {
+		private OuvinteBotaoLogin(LogarUsuario janela) {
 			this.janela = janela;
+		}
+		
+		private boolean verificarUsuario(Usuario temp, Usuario existente) 
+				throws LoginInvalidoException, SenhaInvalidaException {
+			
+			if (temp.equals(existente))
+				return true;
+			
+			if ((temp.getEmail().equals(existente.getEmail()) == false) 
+					|| temp.getEmail().equals("") 
+					|| temp.getEmail() == null)
+				throw new LoginInvalidoException();
+			
+			if ((temp.getSenha().equals(existente.getSenha()) == false) 
+					|| temp.getSenha().equals("") 
+					|| temp.getSenha() == null)
+				throw new SenhaInvalidaException();
+			
+			return false;
 		}
 		
 		public void actionPerformed(ActionEvent ouvinte) {
 			String email = campoEmail.getText().trim();
 			String senha = new String (campoSenha.getPassword());
 
-			boolean deuCerto = false;
+			boolean deuCerto;
 			
-			if (ValidadorEmail.isValidEmailAddress(email)) {
-				Usuario u = new Usuario(email, senha);
-				Persistencia pe = new Persistencia();
-				CentralDeInformacoes central = pe.recuperarCentral();
-				central.adicionarUsuario(u);
-				pe.salvarCentral(central);
-				deuCerto = true;
-			}
-			
-			if (deuCerto) {
-				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+			Persistencia pe = new Persistencia();
+			CentralDeInformacoes central = pe.recuperarCentral();
+			Usuario temp = new Usuario(email, senha);
+			Usuario existente = central.recuperarUsuario();
+
+			try {
+				this.verificarUsuario(temp, existente);
 				dispose();
-				new CadastrarCanal();
-			} else {
-				JOptionPane.showMessageDialog(null, "Deu erro.");
+				new ListarCanais();
+			} catch (LoginInvalidoException lie) {
+				JOptionPane.showMessageDialog(null, lie.getMessage());
+			} catch (SenhaInvalidaException sie) {
+				JOptionPane.showMessageDialog(null, sie.getMessage());
 			}
+			
 		}
 
 	}

@@ -1,11 +1,15 @@
 package midia;
 
+import java.util.ArrayList;
+
 import enums.TipoCanal;
+import programas.Programa;
 
 public abstract class Canal {
 
 	protected String nomeCanal;
 	protected TipoCanal tipoCanal;
+	protected ArrayList<Programa> programasNoCanal;
 	
 	
 	public Canal(String n, TipoCanal t) {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import enums.StatusPrograma;
+import enums.TipoPrograma;
 import midia.Canal;
 
 public abstract class Programa {
@@ -17,14 +18,16 @@ public abstract class Programa {
 	private StatusPrograma status;
 	private ArrayList<DayOfWeek> diasExibicao;
 	private Date dataRetorno;
+	private TipoPrograma tipo;
 	
-	public Programa(String n, Canal c, LocalTime h, StatusPrograma s, ArrayList<DayOfWeek> d) {
+	public Programa(String n, Canal c, LocalTime h, StatusPrograma s, ArrayList<DayOfWeek> d, TipoPrograma t) {
 		id = System.currentTimeMillis();
 		nome = n;
 		canal = c;
 		horario = h;
 		status = s;
 		diasExibicao = d;
+		tipo = t;
 	}
 
 	public String getNome() {
@@ -78,6 +81,11 @@ public abstract class Programa {
 	public long getId() {
 		return id;
 	}
+
+	public TipoPrograma getTipo() {
+		return tipo;
+	}
+	
 	
 
 }

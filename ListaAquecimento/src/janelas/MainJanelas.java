@@ -2,6 +2,9 @@ package janelas;
 
 import javax.swing.JFrame;
 
+import janelas.programa.CadastrarPrograma;
+import janelas.usuario.CadastrarUsuario;
+import janelas.usuario.LogarUsuario;
 import metodos.CentralDeInformacoes;
 import metodos.Persistencia;
 import users.Usuario;
@@ -19,8 +22,5 @@ public class MainJanelas {
 		} else {
 			janela = new LogarUsuario();
 		}
-
-//		janela = new CadastrarCanal();
-		// a linha acima é usada para testes
 	}
 }

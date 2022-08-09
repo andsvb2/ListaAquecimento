@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import enums.EstiloSerieRegular;
 import enums.StatusPrograma;
+import enums.TipoPrograma;
 import midia.Canal;
 
 public class SerieRegular extends Programa {
@@ -15,9 +16,9 @@ public class SerieRegular extends Programa {
 	private String genero;
 	
 	public SerieRegular(String n, Canal c, LocalTime h, StatusPrograma s, 
-			ArrayList<DayOfWeek> d, int t, EstiloSerieRegular e, String g) {
-		super(n, c, h, s, d);
-		qtdTemporadas = t;
+			ArrayList<DayOfWeek> d,  TipoPrograma t, int temp, EstiloSerieRegular e, String g) {
+		super(n, c, h, s, d, t);
+		qtdTemporadas = temp;
 		estilo = e;
 		genero = g;
 	}

@@ -1,6 +1,6 @@
 package enums;
 
-public enum TipoDePrograma {
+public enum TipoPrograma {
 	
 	SR("Série regular"),
 	RS("Reality show"),
@@ -8,7 +8,7 @@ public enum TipoDePrograma {
 	
 	private final String tipo;
 	
-	TipoDePrograma(String novoTipo){
+	TipoPrograma(String novoTipo){
 		tipo = novoTipo;
 	}
 	
